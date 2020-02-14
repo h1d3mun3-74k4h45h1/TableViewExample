@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		122092A723F68336005697B8 /* ViewControllerTableVIewCellDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122092A623F68336005697B8 /* ViewControllerTableVIewCellDecorator.swift */; };
+		1260806723F6721C009CD94A /* ViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260806623F6721C009CD94A /* ViewControllerPresenter.swift */; };
+		1260806923F67225009CD94A /* ViewControllerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260806823F67225009CD94A /* ViewControllerWireframe.swift */; };
+		1260806C23F67237009CD94A /* ViewControllerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260806B23F67237009CD94A /* ViewControllerUseCase.swift */; };
+		1260806F23F67244009CD94A /* ViewControllerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260806E23F67244009CD94A /* ViewControllerDataStore.swift */; };
+		1260807123F67355009CD94A /* ViewControllerPresenterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260807023F67355009CD94A /* ViewControllerPresenterBuilder.swift */; };
+		1260807323F67799009CD94A /* VIewControllerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260807223F67799009CD94A /* VIewControllerRepository.swift */; };
+		1260807B23F67FD2009CD94A /* ViewControllerTableViewSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260807A23F67FD2009CD94A /* ViewControllerTableViewSectionType.swift */; };
 		1274CD2723EC0CA000516E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD2623EC0CA000516E74 /* AppDelegate.swift */; };
 		1274CD2923EC0CA000516E74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD2823EC0CA000516E74 /* SceneDelegate.swift */; };
 		1274CD2B23EC0CA000516E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD2A23EC0CA000516E74 /* ViewController.swift */; };
@@ -15,6 +23,10 @@
 		1274CD3323EC0CA300516E74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1274CD3123EC0CA300516E74 /* LaunchScreen.storyboard */; };
 		1274CD3E23EC0CA300516E74 /* TableViewExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD3D23EC0CA300516E74 /* TableViewExampleTests.swift */; };
 		1274CD4923EC0CA300516E74 /* TableViewExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD4823EC0CA300516E74 /* TableViewExampleUITests.swift */; };
+		1274CD5823EC0DFC00516E74 /* CustomerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD5723EC0DFC00516E74 /* CustomerCell.swift */; };
+		1274CD5A23EC0E0200516E74 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD5923EC0E0200516E74 /* ItemCell.swift */; };
+		1274CD5C23EC0E0800516E74 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD5B23EC0E0800516E74 /* AddressCell.swift */; };
+		1274CD5F23EC0EC300516E74 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD5E23EC0EC300516E74 /* TestModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +47,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		122092A623F68336005697B8 /* ViewControllerTableVIewCellDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableVIewCellDecorator.swift; sourceTree = "<group>"; };
+		1260806623F6721C009CD94A /* ViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenter.swift; sourceTree = "<group>"; };
+		1260806823F67225009CD94A /* ViewControllerWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWireframe.swift; sourceTree = "<group>"; };
+		1260806B23F67237009CD94A /* ViewControllerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUseCase.swift; sourceTree = "<group>"; };
+		1260806E23F67244009CD94A /* ViewControllerDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDataStore.swift; sourceTree = "<group>"; };
+		1260807023F67355009CD94A /* ViewControllerPresenterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenterBuilder.swift; sourceTree = "<group>"; };
+		1260807223F67799009CD94A /* VIewControllerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIewControllerRepository.swift; sourceTree = "<group>"; };
+		1260807A23F67FD2009CD94A /* ViewControllerTableViewSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewSectionType.swift; sourceTree = "<group>"; };
 		1274CD2323EC0CA000516E74 /* TableViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1274CD2623EC0CA000516E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1274CD2823EC0CA000516E74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +69,10 @@
 		1274CD4423EC0CA300516E74 /* TableViewExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1274CD4823EC0CA300516E74 /* TableViewExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExampleUITests.swift; sourceTree = "<group>"; };
 		1274CD4A23EC0CA300516E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1274CD5723EC0DFC00516E74 /* CustomerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerCell.swift; sourceTree = "<group>"; };
+		1274CD5923EC0E0200516E74 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		1274CD5B23EC0E0800516E74 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
+		1274CD5E23EC0EC300516E74 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +100,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		122092A523F68311005697B8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				122092A623F68336005697B8 /* ViewControllerTableVIewCellDecorator.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1260806523F6720D009CD94A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1274CD2A23EC0CA000516E74 /* ViewController.swift */,
+				1260807023F67355009CD94A /* ViewControllerPresenterBuilder.swift */,
+				1260806623F6721C009CD94A /* ViewControllerPresenter.swift */,
+				1260806823F67225009CD94A /* ViewControllerWireframe.swift */,
+				1260806A23F6722C009CD94A /* domain */,
+				122092A523F68311005697B8 /* Utilities */,
+				1260807A23F67FD2009CD94A /* ViewControllerTableViewSectionType.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1260806A23F6722C009CD94A /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				1260806B23F67237009CD94A /* ViewControllerUseCase.swift */,
+				1260806D23F6723A009CD94A /* data */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		1260806D23F6723A009CD94A /* data */ = {
+			isa = PBXGroup;
+			children = (
+				1260807223F67799009CD94A /* VIewControllerRepository.swift */,
+				1260806E23F67244009CD94A /* ViewControllerDataStore.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 		1274CD1A23EC0CA000516E74 = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +163,11 @@
 		1274CD2523EC0CA000516E74 /* TableViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				1260806523F6720D009CD94A /* ViewController */,
+				1274CD5D23EC0EB900516E74 /* Model */,
+				1274CD5623EC0DEF00516E74 /* TestCell */,
 				1274CD2623EC0CA000516E74 /* AppDelegate.swift */,
 				1274CD2823EC0CA000516E74 /* SceneDelegate.swift */,
-				1274CD2A23EC0CA000516E74 /* ViewController.swift */,
 				1274CD2C23EC0CA000516E74 /* Main.storyboard */,
 				1274CD2F23EC0CA300516E74 /* Assets.xcassets */,
 				1274CD3123EC0CA300516E74 /* LaunchScreen.storyboard */,
@@ -126,6 +192,24 @@
 				1274CD4A23EC0CA300516E74 /* Info.plist */,
 			);
 			path = TableViewExampleUITests;
+			sourceTree = "<group>";
+		};
+		1274CD5623EC0DEF00516E74 /* TestCell */ = {
+			isa = PBXGroup;
+			children = (
+				1274CD5723EC0DFC00516E74 /* CustomerCell.swift */,
+				1274CD5923EC0E0200516E74 /* ItemCell.swift */,
+				1274CD5B23EC0E0800516E74 /* AddressCell.swift */,
+			);
+			path = TestCell;
+			sourceTree = "<group>";
+		};
+		1274CD5D23EC0EB900516E74 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1274CD5E23EC0EC300516E74 /* TestModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +343,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1260807323F67799009CD94A /* VIewControllerRepository.swift in Sources */,
+				1260806C23F67237009CD94A /* ViewControllerUseCase.swift in Sources */,
+				1260807123F67355009CD94A /* ViewControllerPresenterBuilder.swift in Sources */,
+				1260806F23F67244009CD94A /* ViewControllerDataStore.swift in Sources */,
+				1260807B23F67FD2009CD94A /* ViewControllerTableViewSectionType.swift in Sources */,
 				1274CD2B23EC0CA000516E74 /* ViewController.swift in Sources */,
+				1260806923F67225009CD94A /* ViewControllerWireframe.swift in Sources */,
+				1274CD5C23EC0E0800516E74 /* AddressCell.swift in Sources */,
+				1274CD5A23EC0E0200516E74 /* ItemCell.swift in Sources */,
+				1274CD5F23EC0EC300516E74 /* TestModel.swift in Sources */,
+				122092A723F68336005697B8 /* ViewControllerTableVIewCellDecorator.swift in Sources */,
 				1274CD2723EC0CA000516E74 /* AppDelegate.swift in Sources */,
 				1274CD2923EC0CA000516E74 /* SceneDelegate.swift in Sources */,
+				1274CD5823EC0DFC00516E74 /* CustomerCell.swift in Sources */,
+				1260806723F6721C009CD94A /* ViewControllerPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
