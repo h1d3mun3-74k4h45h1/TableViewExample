@@ -3,15 +3,15 @@ import UIKit
 class ViewController: UIViewController {
 
     lazy var presenter = ViewControllerPresenterBuilder.build(view: self)
-    var cellDecorator: ViewControllerTableVIewCellUtilities!
-    let sectionHeaderDecorator = ViewControllerTableViewSectionHeaderUtilities()
-    let sectionFooterDecorator = ViewControllerTableViewSectionFooterUtilities()
+    var cellUtilities: ViewControllerTableVIewCellUtilities!
+    let sectionHeaderUtilities = ViewControllerTableViewSectionHeaderUtilities()
+    let sectionFooterUtilities = ViewControllerTableViewSectionFooterUtilities()
 
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cellDecorator = ViewControllerTableVIewCellUtilities(tableView: self.tableView)
+        cellUtilities = ViewControllerTableVIewCellUtilities(tableView: self.tableView)
     }
 
 }
@@ -36,17 +36,17 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch presenter.sectionType(of: indexPath.section) {
         case .customer:
-            return cellDecorator.decorateCustomerCell(
+            return cellUtilities.decorateCustomerCell(
                 indexPath: indexPath,
                 value: presenter.itemDataOfCustomer(index: indexPath.row)
             )
         case .item:
-            return cellDecorator.decorateItemCell(
+            return cellUtilities.decorateItemCell(
                 indexPath: indexPath,
                 value: presenter.itemDataOfItem(index: indexPath.row)
             )
         case .address:
-            return cellDecorator.decorateAddressCell(
+            return cellUtilities.decorateAddressCell(
                 indexPath: indexPath,
                 value: presenter.itemDataOfAddress(index: indexPath.row)
             )
@@ -54,32 +54,32 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return sectionHeaderDecorator.header(for: presenter.sectionType(of: section))
+        return sectionHeaderUtilities.header(for: presenter.sectionType(of: section))
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return sectionFooterDecorator.footer(for: presenter.sectionType(of: section))
+        return sectionFooterUtilities.footer(for: presenter.sectionType(of: section))
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch presenter.sectionType(of: section) {
         case .customer:
-            return sectionHeaderDecorator.height(for: .customer, hasContent: presenter.itemsCountOfCustomer() != 0)
+            return sectionHeaderUtilities.height(for: .customer, hasContent: presenter.itemsCountOfCustomer() != 0)
         case .item:
-            return sectionHeaderDecorator.height(for: .item, hasContent: presenter.itemsCountOfItem() != 0)
+            return sectionHeaderUtilities.height(for: .item, hasContent: presenter.itemsCountOfItem() != 0)
         case .address:
-            return sectionHeaderDecorator.height(for: .address, hasContent: presenter.itemsCountOfAddress() != 0)
+            return sectionHeaderUtilities.height(for: .address, hasContent: presenter.itemsCountOfAddress() != 0)
         }
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         switch presenter.sectionType(of: section) {
         case .customer:
-            return sectionFooterDecorator.height(for: .customer, hasContent: presenter.itemsCountOfCustomer() != 0)
+            return sectionFooterUtilities.height(for: .customer, hasContent: presenter.itemsCountOfCustomer() != 0)
         case .item:
-            return sectionFooterDecorator.height(for: .item, hasContent: presenter.itemsCountOfItem() != 0)
+            return sectionFooterUtilities.height(for: .item, hasContent: presenter.itemsCountOfItem() != 0)
         case .address:
-            return sectionFooterDecorator.height(for: .address, hasContent: presenter.itemsCountOfAddress() != 0)
+            return sectionFooterUtilities.height(for: .address, hasContent: presenter.itemsCountOfAddress() != 0)
         }
     }
 }
