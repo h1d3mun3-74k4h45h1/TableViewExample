@@ -23,15 +23,15 @@ extension ViewControllerDataStore: ViewControllerRepositoryInput {
         return [value]
     }
 
-    func itemOfCustomer(index: Int) -> String {
-        return model.customerName!
+    func itemOfCustomer(index: Int) -> String? {
+        return model.customerName
     }
 
-    func itemOfItem(index: Int) -> String {
-        return model.itemName!
+    func itemOfItem(index: Int) -> String? {
+        return model.itemName
     }
 
-    func itemOfAddress(index: Int) -> String {
-        return model.address!
+    func itemOfAddress(index: Int) -> String? {
+        return model.address
     }
 }

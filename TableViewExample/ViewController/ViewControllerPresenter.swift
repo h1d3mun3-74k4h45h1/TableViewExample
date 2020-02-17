@@ -6,9 +6,9 @@ protocol ViewControllerPresenterProtocol {
     func itemsCountOfCustomer() -> Int
     func itemsCountOfItem() -> Int
     func itemsCountOfAddress() -> Int
-    func itemDataOfCustomer(index: Int) -> String
-    func itemDataOfItem(index: Int) -> String
-    func itemDataOfAddress(index: Int) -> String
+    func itemDataOfCustomer(index: Int) -> String?
+    func itemDataOfItem(index: Int) -> String?
+    func itemDataOfAddress(index: Int) -> String?
     func didSelectCustomerRow(of index: Int)
     func didSelectItemRow(of index: Int)
     func didSelectAddressRow(of index: Int)
@@ -48,30 +48,30 @@ extension ViewControllerPresenter: ViewControllerPresenterProtocol {
         return useCase.itemsOfAddress().count
     }
 
-    func itemDataOfCustomer(index: Int) -> String {
+    func itemDataOfCustomer(index: Int) -> String? {
         return useCase.itemOfCustomer(index: index)
     }
 
-    func itemDataOfItem(index: Int) -> String {
+    func itemDataOfItem(index: Int) -> String? {
         return useCase.itemOfItem(index: index)
     }
 
-    func itemDataOfAddress(index: Int) -> String {
+    func itemDataOfAddress(index: Int) -> String? {
         return useCase.itemOfAddress(index: index)
     }
 
     func didSelectCustomerRow(of index: Int) {
-        let value = useCase.itemOfCustomer(index: index)
+        guard let value = useCase.itemOfCustomer(index: index) else { return }
         wireframe.showCustomerDetail(name: value)
     }
 
     func didSelectItemRow(of index: Int) {
-        let value = useCase.itemOfItem(index: index)
+        guard let value = useCase.itemOfItem(index: index) else { return }
         wireframe.showItemDetail(itemName: value)
     }
 
     func didSelectAddressRow(of index: Int) {
-        let value = useCase.itemOfAddress(index: index)
+        guard let value = useCase.itemOfAddress(index: index) else { return }
         wireframe.showAddressDetail(address: value)
     }
 }

@@ -3,9 +3,9 @@ protocol ViewControllerUseCaseProtocol {
     func itemsOfCustomer() -> [String]
     func itemsOfItem() -> [String]
     func itemsOfAddress() -> [String]
-    func itemOfCustomer(index: Int) -> String
-    func itemOfItem(index: Int) -> String
-    func itemOfAddress(index: Int) -> String
+    func itemOfCustomer(index: Int) -> String?
+    func itemOfItem(index: Int) -> String?
+    func itemOfAddress(index: Int) -> String?
 }
 
 protocol ViewControllerUseCaseInput {
@@ -13,9 +13,9 @@ protocol ViewControllerUseCaseInput {
     func itemsOfCustomer() -> [String]
     func itemsOfItem() -> [String]
     func itemsOfAddress() -> [String]
-    func itemOfCustomer(index: Int) -> String
-    func itemOfItem(index: Int) -> String
-    func itemOfAddress(index: Int) -> String
+    func itemOfCustomer(index: Int) -> String?
+    func itemOfItem(index: Int) -> String?
+    func itemOfAddress(index: Int) -> String?
 }
 
 struct ViewControllerUseCase {
@@ -39,15 +39,15 @@ extension ViewControllerUseCase: ViewControllerUseCaseProtocol {
         return useCaseInput.itemsOfAddress()
     }
     
-    func itemOfCustomer(index: Int) -> String {
+    func itemOfCustomer(index: Int) -> String? {
         return useCaseInput.itemOfCustomer(index: index)
     }
 
-    func itemOfItem(index: Int) -> String {
+    func itemOfItem(index: Int) -> String? {
         return useCaseInput.itemOfItem(index: index)
     }
 
-    func itemOfAddress(index: Int) -> String {
+    func itemOfAddress(index: Int) -> String? {
         return useCaseInput.itemOfAddress(index: index)
     }
 }

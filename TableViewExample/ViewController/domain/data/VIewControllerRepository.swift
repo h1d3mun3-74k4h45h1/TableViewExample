@@ -3,9 +3,9 @@ protocol ViewControllerRepositoryInput {
     func itemsOfCustomer() -> [String]
     func itemsOfItem() -> [String]
     func itemsOfAddress() -> [String]
-    func itemOfCustomer(index: Int) -> String
-    func itemOfItem(index: Int) -> String
-    func itemOfAddress(index: Int) -> String
+    func itemOfCustomer(index: Int) -> String?
+    func itemOfItem(index: Int) -> String?
+    func itemOfAddress(index: Int) -> String?
 }
 
 struct ViewControllerRepository {
@@ -29,15 +29,15 @@ extension ViewControllerRepository: ViewControllerUseCaseInput {
         return dataStore.itemsOfAddress()
     }
 
-    func itemOfCustomer(index: Int) -> String {
+    func itemOfCustomer(index: Int) -> String? {
         return dataStore.itemOfCustomer(index: index)
     }
 
-    func itemOfItem(index: Int) -> String {
+    func itemOfItem(index: Int) -> String? {
         return dataStore.itemOfItem(index: index)
     }
 
-    func itemOfAddress(index: Int) -> String {
+    func itemOfAddress(index: Int) -> String? {
         return dataStore.itemOfAddress(index: index)
     }
 }

@@ -1,9 +1,9 @@
 import UIKit
 
 protocol ViewControllerTableViewCellDecoratorProtocol {
-    func decorateCustomerCell(indexPath: IndexPath, value: String) -> CustomerCell
-    func decorateItemCell(indexPath: IndexPath, value: String) -> ItemCell
-    func decorateAddressCell(indexPath: IndexPath, value: String) -> AddressCell
+    func decorateCustomerCell(indexPath: IndexPath, value: String?) -> CustomerCell
+    func decorateItemCell(indexPath: IndexPath, value: String?) -> ItemCell
+    func decorateAddressCell(indexPath: IndexPath, value: String?) -> AddressCell
 }
 
 struct ViewControllerTableViewCellDecorator {
@@ -11,7 +11,7 @@ struct ViewControllerTableViewCellDecorator {
 }
 
 extension ViewControllerTableViewCellDecorator: ViewControllerTableViewCellDecoratorProtocol {
-    func decorateCustomerCell(indexPath: IndexPath, value: String) -> CustomerCell {
+    func decorateCustomerCell(indexPath: IndexPath, value: String?) -> CustomerCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomerCell", for: indexPath) as? CustomerCell else {
             fatalError()
         }
@@ -20,7 +20,7 @@ extension ViewControllerTableViewCellDecorator: ViewControllerTableViewCellDecor
         return cell
     }
 
-    func decorateItemCell(indexPath: IndexPath, value: String) -> ItemCell {
+    func decorateItemCell(indexPath: IndexPath, value: String?) -> ItemCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? ItemCell else {
             fatalError()
         }
@@ -29,7 +29,7 @@ extension ViewControllerTableViewCellDecorator: ViewControllerTableViewCellDecor
         return cell
     }
 
-    func decorateAddressCell(indexPath: IndexPath, value: String) -> AddressCell {
+    func decorateAddressCell(indexPath: IndexPath, value: String?) -> AddressCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell", for: indexPath) as? AddressCell else {
             fatalError()
         }
