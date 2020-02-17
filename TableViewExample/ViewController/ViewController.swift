@@ -4,6 +4,8 @@ class ViewController: UIViewController {
 
     lazy var presenter = ViewControllerPresenterBuilder.build(view: self)
     var cellDecorator: ViewControllerTableViewCellDecorator!
+    let sectionHeaderDecorator = ViewControllerTableViewSectionHeaderDecorator()
+    let sectionFooterDecorator = ViewControllerTableViewSectionFooterDecorator()
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -48,6 +50,36 @@ extension ViewController: UITableViewDataSource {
                 indexPath: indexPath,
                 value: presenter.itemDataOfAddress(index: indexPath.row)
             )
+        }
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return sectionHeaderDecorator.header(for: presenter.sectionType(of: section))
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return sectionFooterDecorator.footer(for: presenter.sectionType(of: section))
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch presenter.sectionType(of: section) {
+        case .customer:
+            return sectionHeaderDecorator.height(for: .customer, hasContent: presenter.itemsCountOfCustomer() != 0)
+        case .item:
+            return sectionHeaderDecorator.height(for: .item, hasContent: presenter.itemsCountOfItem() != 0)
+        case .address:
+            return sectionHeaderDecorator.height(for: .address, hasContent: presenter.itemsCountOfAddress() != 0)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        switch presenter.sectionType(of: section) {
+        case .customer:
+            return sectionFooterDecorator.height(for: .customer, hasContent: presenter.itemsCountOfCustomer() != 0)
+        case .item:
+            return sectionFooterDecorator.height(for: .item, hasContent: presenter.itemsCountOfItem() != 0)
+        case .address:
+            return sectionFooterDecorator.height(for: .address, hasContent: presenter.itemsCountOfAddress() != 0)
         }
     }
 }
