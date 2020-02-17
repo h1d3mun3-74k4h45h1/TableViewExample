@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		122092A723F68336005697B8 /* ViewControllerTableVIewCellDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122092A623F68336005697B8 /* ViewControllerTableVIewCellDecorator.swift */; };
+		122092A723F68336005697B8 /* ViewControllerTableVIewCellUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122092A623F68336005697B8 /* ViewControllerTableVIewCellUtilities.swift */; };
 		1260806723F6721C009CD94A /* ViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260806623F6721C009CD94A /* ViewControllerPresenter.swift */; };
 		1260806923F67225009CD94A /* ViewControllerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260806823F67225009CD94A /* ViewControllerWireframe.swift */; };
 		1260806C23F67237009CD94A /* ViewControllerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260806B23F67237009CD94A /* ViewControllerUseCase.swift */; };
@@ -27,8 +27,8 @@
 		1274CD5A23EC0E0200516E74 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD5923EC0E0200516E74 /* ItemCell.swift */; };
 		1274CD5C23EC0E0800516E74 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD5B23EC0E0800516E74 /* AddressCell.swift */; };
 		1274CD5F23EC0EC300516E74 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD5E23EC0EC300516E74 /* TestModel.swift */; };
-		12BBA3C823FA562B004644CE /* ViewControllerTableViewSectionHeaderDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BBA3C723FA562B004644CE /* ViewControllerTableViewSectionHeaderDecorator.swift */; };
-		12BBA3CA23FA5637004644CE /* ViewControllerTableViewSectionFooterDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BBA3C923FA5637004644CE /* ViewControllerTableViewSectionFooterDecorator.swift */; };
+		12BBA3C823FA562B004644CE /* ViewControllerTableViewSectionHeaderUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BBA3C723FA562B004644CE /* ViewControllerTableViewSectionHeaderUtilities.swift */; };
+		12BBA3CA23FA5637004644CE /* ViewControllerTableViewSectionFooterUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BBA3C923FA5637004644CE /* ViewControllerTableViewSectionFooterUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		122092A623F68336005697B8 /* ViewControllerTableVIewCellDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableVIewCellDecorator.swift; sourceTree = "<group>"; };
+		122092A623F68336005697B8 /* ViewControllerTableVIewCellUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableVIewCellUtilities.swift; sourceTree = "<group>"; };
 		1260806623F6721C009CD94A /* ViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenter.swift; sourceTree = "<group>"; };
 		1260806823F67225009CD94A /* ViewControllerWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWireframe.swift; sourceTree = "<group>"; };
 		1260806B23F67237009CD94A /* ViewControllerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUseCase.swift; sourceTree = "<group>"; };
@@ -75,8 +75,8 @@
 		1274CD5923EC0E0200516E74 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		1274CD5B23EC0E0800516E74 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		1274CD5E23EC0EC300516E74 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
-		12BBA3C723FA562B004644CE /* ViewControllerTableViewSectionHeaderDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewSectionHeaderDecorator.swift; sourceTree = "<group>"; };
-		12BBA3C923FA5637004644CE /* ViewControllerTableViewSectionFooterDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewSectionFooterDecorator.swift; sourceTree = "<group>"; };
+		12BBA3C723FA562B004644CE /* ViewControllerTableViewSectionHeaderUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewSectionHeaderUtilities.swift; sourceTree = "<group>"; };
+		12BBA3C923FA5637004644CE /* ViewControllerTableViewSectionFooterUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewSectionFooterUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +107,9 @@
 		122092A523F68311005697B8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				12BBA3C723FA562B004644CE /* ViewControllerTableViewSectionHeaderDecorator.swift */,
-				12BBA3C923FA5637004644CE /* ViewControllerTableViewSectionFooterDecorator.swift */,
-				122092A623F68336005697B8 /* ViewControllerTableVIewCellDecorator.swift */,
+				12BBA3C723FA562B004644CE /* ViewControllerTableViewSectionHeaderUtilities.swift */,
+				12BBA3C923FA5637004644CE /* ViewControllerTableViewSectionFooterUtilities.swift */,
+				122092A623F68336005697B8 /* ViewControllerTableVIewCellUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -349,9 +349,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12BBA3CA23FA5637004644CE /* ViewControllerTableViewSectionFooterDecorator.swift in Sources */,
+				12BBA3CA23FA5637004644CE /* ViewControllerTableViewSectionFooterUtilities.swift in Sources */,
 				1260807323F67799009CD94A /* VIewControllerRepository.swift in Sources */,
-				12BBA3C823FA562B004644CE /* ViewControllerTableViewSectionHeaderDecorator.swift in Sources */,
+				12BBA3C823FA562B004644CE /* ViewControllerTableViewSectionHeaderUtilities.swift in Sources */,
 				1260806C23F67237009CD94A /* ViewControllerUseCase.swift in Sources */,
 				1260807123F67355009CD94A /* ViewControllerPresenterBuilder.swift in Sources */,
 				1260806F23F67244009CD94A /* ViewControllerDataStore.swift in Sources */,
@@ -361,7 +361,7 @@
 				1274CD5C23EC0E0800516E74 /* AddressCell.swift in Sources */,
 				1274CD5A23EC0E0200516E74 /* ItemCell.swift in Sources */,
 				1274CD5F23EC0EC300516E74 /* TestModel.swift in Sources */,
-				122092A723F68336005697B8 /* ViewControllerTableVIewCellDecorator.swift in Sources */,
+				122092A723F68336005697B8 /* ViewControllerTableVIewCellUtilities.swift in Sources */,
 				1274CD2723EC0CA000516E74 /* AppDelegate.swift in Sources */,
 				1274CD2923EC0CA000516E74 /* SceneDelegate.swift in Sources */,
 				1274CD5823EC0DFC00516E74 /* CustomerCell.swift in Sources */,

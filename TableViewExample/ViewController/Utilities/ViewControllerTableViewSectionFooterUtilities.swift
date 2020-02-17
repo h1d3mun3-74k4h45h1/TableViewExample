@@ -1,28 +1,28 @@
 import UIKit
 
-protocol ViewControllerTableViewSectionHeaderDecoratorProtocol {
-    func header(for sectionType: ViewControllerTableViewSectionType) -> UIView?
+protocol ViewControllerTableViewSectionFooterUtilitiesProtocol {
+    func footer(for sectionType: ViewControllerTableViewSectionType) -> UIView?
     func height(for sectionType: ViewControllerTableViewSectionType, hasContent: Bool) -> CGFloat
 }
 
-struct ViewControllerTableViewSectionHeaderDecorator {
-    
+struct ViewControllerTableViewSectionFooterUtilities {
+
 }
 
-extension ViewControllerTableViewSectionHeaderDecorator: ViewControllerTableViewSectionHeaderDecoratorProtocol {
-    func header(for sectionType: ViewControllerTableViewSectionType) -> UIView? {
+extension ViewControllerTableViewSectionFooterUtilities: ViewControllerTableViewSectionFooterUtilitiesProtocol {
+    func footer(for sectionType: ViewControllerTableViewSectionType) -> UIView? {
         switch sectionType {
         case .customer:
             let view = UIView()
-            view.backgroundColor = .blue
+            view.backgroundColor = .lightGray
             return view
         case .item:
             let view = UIView()
-            view.backgroundColor = .red
+            view.backgroundColor = .systemPink
             return view
         case .address:
             let view = UIView()
-            view.backgroundColor = .purple
+            view.backgroundColor = .systemTeal
             return view
         }
     }
@@ -31,11 +31,11 @@ extension ViewControllerTableViewSectionHeaderDecorator: ViewControllerTableView
         guard hasContent == true else { return .leastNormalMagnitude }
         switch sectionType {
         case .customer:
-            return 30.0
+            return 10.0
         case .item:
             return 20.0
         case .address:
-            return 10.0
+            return 30.0
         }
     }
 }

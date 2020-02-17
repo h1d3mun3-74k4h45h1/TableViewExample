@@ -3,15 +3,15 @@ import UIKit
 class ViewController: UIViewController {
 
     lazy var presenter = ViewControllerPresenterBuilder.build(view: self)
-    var cellDecorator: ViewControllerTableViewCellDecorator!
-    let sectionHeaderDecorator = ViewControllerTableViewSectionHeaderDecorator()
-    let sectionFooterDecorator = ViewControllerTableViewSectionFooterDecorator()
+    var cellDecorator: ViewControllerTableVIewCellUtilities!
+    let sectionHeaderDecorator = ViewControllerTableViewSectionHeaderUtilities()
+    let sectionFooterDecorator = ViewControllerTableViewSectionFooterUtilities()
 
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cellDecorator = ViewControllerTableViewCellDecorator(tableView: self.tableView)
+        cellDecorator = ViewControllerTableVIewCellUtilities(tableView: self.tableView)
     }
 
 }

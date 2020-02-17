@@ -1,16 +1,16 @@
 import UIKit
 
-protocol ViewControllerTableViewCellDecoratorProtocol {
+protocol ViewControllerTableVIewCellUtilitiesProtocol {
     func decorateCustomerCell(indexPath: IndexPath, value: String?) -> CustomerCell
     func decorateItemCell(indexPath: IndexPath, value: String?) -> ItemCell
     func decorateAddressCell(indexPath: IndexPath, value: String?) -> AddressCell
 }
 
-struct ViewControllerTableViewCellDecorator {
+struct ViewControllerTableVIewCellUtilities {
     let tableView: UITableView
 }
 
-extension ViewControllerTableViewCellDecorator: ViewControllerTableViewCellDecoratorProtocol {
+extension ViewControllerTableVIewCellUtilities: ViewControllerTableVIewCellUtilitiesProtocol {
     func decorateCustomerCell(indexPath: IndexPath, value: String?) -> CustomerCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomerCell", for: indexPath) as? CustomerCell else {
             fatalError()
