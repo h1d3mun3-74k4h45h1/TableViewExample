@@ -34,4 +34,12 @@ extension ViewControllerDataStore: ViewControllerRepositoryInput {
     func itemOfAddress(index: Int) -> String? {
         return model.address
     }
+
+    struct ViewControllerCellDataModel {
+        let value: String
+    }
+
+    guard let dataModel = presenter.itemData(of: indexPath) else { return }
+    cellUtiliti.dataModel
+
 }

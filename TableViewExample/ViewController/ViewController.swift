@@ -23,34 +23,39 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch presenter.sectionType(of: section) {
-        case .customer:
-            return presenter.itemsCountOfCustomer()
-        case .item:
-            return presenter.itemsCountOfItem()
-        case .address:
-            return presenter.itemsCountOfAddress()
-        }
+        return presenter.numberOfItems(in: section)
+//        switch presenter.sectionType(of: section) {
+//        case .customer:
+//            return presenter.itemsCountOfCustomer()
+//        case .item:
+//            return presenter.itemsCountOfItem()
+//        case .address:
+//            return presenter.itemsCountOfAddress()
+//        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch presenter.sectionType(of: indexPath.section) {
-        case .customer:
-            return cellUtilities.decorateCustomerCell(
-                indexPath: indexPath,
-                value: presenter.itemDataOfCustomer(index: indexPath.row)
-            )
-        case .item:
-            return cellUtilities.decorateItemCell(
-                indexPath: indexPath,
-                value: presenter.itemDataOfItem(index: indexPath.row)
-            )
-        case .address:
-            return cellUtilities.decorateAddressCell(
-                indexPath: indexPath,
-                value: presenter.itemDataOfAddress(index: indexPath.row)
-            )
+        protocol CellModelProtocol {
+            var cellType: ViewControllerCellType
         }
+
+
+
+        class CustomerCellModel: CellModelProtocol {
+            let value: CustomerDataModel
+        }
+
+        protocol ViewControllerConfigurablewCell {
+            func configure(from model: CellModel)
+        }
+
+        guard let cellModel = presenter.itemData(of: indexPAth) else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.cellType.identifier, for: indexPath) as? ViewControllerConfigurablewCell else {
+            return UITableViewCell()
+        }
+
+        cell.configure(from: cellModel)
+        return cell
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -86,14 +91,15 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch presenter.sectionType(of: indexPath.section) {
-        case .customer:
-            presenter.didSelectCustomerRow(of: indexPath.row)
-        case .item:
-            presenter.didSelectItemRow(of: indexPath.row)
-        case .address:
-            presenter.didSelectAddressRow(of: indexPath.row)
-        }
+        presenter.didSelectRow(at: indexPath)
+//        switch presenter.sectionType(of: indexPath.section) {
+//        case .customer:
+//            presenter.didSelectCustomerRow(of: indexPath.row)
+//        case .item:
+//            presenter.didSelectItemRow(of: indexPath.row)
+//        case .address:
+//            presenter.didSelectAddressRow(of: indexPath.row)
+//        }
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
