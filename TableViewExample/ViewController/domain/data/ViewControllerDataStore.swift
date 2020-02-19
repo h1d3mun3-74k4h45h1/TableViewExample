@@ -38,8 +38,4 @@ extension ViewControllerDataStore: ViewControllerRepositoryInput {
     struct ViewControllerCellDataModel {
         let value: String
     }
-
-    guard let dataModel = presenter.itemData(of: indexPath) else { return }
-    cellUtiliti.dataModel
-
 }

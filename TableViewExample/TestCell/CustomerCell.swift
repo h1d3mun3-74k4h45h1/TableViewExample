@@ -2,15 +2,14 @@ import UIKit
 
 final class CustomerCell: UITableViewCell {
     @IBOutlet weak var customerName: UILabel!
-
-    func configure(from cellModel: CustomerCellModel) {
-        customerName.text = cellModel.customerName
-    }
 }
 
-extension CustomerCell: ViewControllerConfigurablewCell{
-    func configure(from model: CellModel) {
-        guard let value = model as? CustoerCellModel else { fatalError() }
-        waiwai
+extension CustomerCell: ViewControllerConfigurableCell {
+    func configure(with cellModel: ViewControllerCellModel) {
+        guard let customerCellModel = cellModel as? ViewControllerCustomerCellModel else {
+            fatalError("Unsupported CellModel received.")
+        }
+
+        customerName.text = customerCellModel.value
     }
 }

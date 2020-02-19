@@ -1,8 +1,8 @@
 import UIKit
 
 protocol ViewControllerTableViewSectionHeaderUtilitiesProtocol {
-    func header(for sectionType: ViewControllerTableViewSectionType) -> UIView?
-    func height(for sectionType: ViewControllerTableViewSectionType, hasContent: Bool) -> CGFloat
+    func header(for headerModel: ViewControllerSectionHeaderModel) -> UIView?
+    func height(for headerModel: ViewControllerSectionHeaderModel) -> CGFloat
 }
 
 struct ViewControllerTableViewSectionHeaderUtilities {
@@ -10,8 +10,8 @@ struct ViewControllerTableViewSectionHeaderUtilities {
 }
 
 extension ViewControllerTableViewSectionHeaderUtilities: ViewControllerTableViewSectionHeaderUtilitiesProtocol {
-    func header(for sectionType: ViewControllerTableViewSectionType) -> UIView? {
-        switch sectionType {
+    func header(for headerModel: ViewControllerSectionHeaderModel) -> UIView? {
+        switch headerModel.sectionType {
         case .customer:
             let view = UIView()
             view.backgroundColor = .blue
@@ -27,9 +27,9 @@ extension ViewControllerTableViewSectionHeaderUtilities: ViewControllerTableView
         }
     }
 
-    func height(for sectionType: ViewControllerTableViewSectionType, hasContent: Bool) -> CGFloat {
-        guard hasContent == true else { return .leastNormalMagnitude }
-        switch sectionType {
+    func height(for headerModel: ViewControllerSectionHeaderModel) -> CGFloat {
+        guard headerModel.isHidden else { return .leastNormalMagnitude }
+        switch headerModel.sectionType {
         case .customer:
             return 30.0
         case .item:
