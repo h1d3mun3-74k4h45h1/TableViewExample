@@ -95,6 +95,8 @@
 		1260807023F67355009CD94A /* ViewControllerPresenterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenterBuilder.swift; sourceTree = "<group>"; };
 		1260807223F67799009CD94A /* VIewControllerCustomerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIewControllerCustomerRepository.swift; sourceTree = "<group>"; };
 		1260807A23F67FD2009CD94A /* ViewControllerTableViewSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewSectionType.swift; sourceTree = "<group>"; };
+		1262337D23FCF16E0060F695 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1262338023FCF19D0060F695 /* Class.puml */ = {isa = PBXFileReference; lastKnownFileType = text; path = Class.puml; sourceTree = "<group>"; };
 		1274CD2323EC0CA000516E74 /* TableViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1274CD2623EC0CA000516E74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1274CD2823EC0CA000516E74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -283,9 +285,19 @@
 			path = data;
 			sourceTree = "<group>";
 		};
+		1262337F23FCF1910060F695 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				1262338023FCF19D0060F695 /* Class.puml */,
+			);
+			path = Documents;
+			sourceTree = "<group>";
+		};
 		1274CD1A23EC0CA000516E74 = {
 			isa = PBXGroup;
 			children = (
+				1262337D23FCF16E0060F695 /* README.md */,
+				1262337F23FCF1910060F695 /* Documents */,
 				1274CD2523EC0CA000516E74 /* TableViewExample */,
 				1274CD3C23EC0CA300516E74 /* TableViewExampleTests */,
 				1274CD4723EC0CA300516E74 /* TableViewExampleUITests */,

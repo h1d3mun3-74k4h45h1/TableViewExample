@@ -1,0 +1,119 @@
+@startuml
+
+class ViewController {
+    func numberOfSections(in tableView: UITableView) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+
+
+    let tableView: UITableView
+    let cellUtilities: ViewControllerTableViewCellUtilities
+    let sectionHeaderUtilities: ViewControllerTableViewSectionHeaderUtilities
+    let sectionFooterUtilities: ViewControllerTableViewSectionFooterUtilities
+}
+
+class ViewControllerPresenter {
+    func sectionType(of section: Int) -> ViewControllerTableViewSectionType
+    func numberOfSections() -> Int
+    func itemsCountOfCustomer() -> Int
+    func itemsCountOfItem() -> Int
+    func itemsCountOfAddress() -> Int
+    func itemDataOfCustomer(index: Int) -> String?
+    func itemDataOfItem(index: Int) -> String?
+    func itemDataOfAddress(index: Int) -> String?
+    func didSelectCustomerRow(of index: Int)
+    func didSelectItemRow(of index: Int)
+    func didSelectAddressRow(of index: Int)
+}
+
+class ViewControllerWireframe {
+    func showCustomerDetail(name: String)
+    func showItemDetail(itemName: String)
+    func showAddressDetail(address: String)
+}
+
+class ViewControllerUseCase  << (S, Orange) >> {
+    func numberOfSections() -> Int
+    func itemsOfCustomer() -> [String]
+    func itemsOfItem() -> [String]
+    func itemsOfAddress() -> [String]
+    func itemOfCustomer(index: Int) -> String?
+    func itemOfItem(index: Int) -> String?
+    func itemOfAddress(index: Int) -> String?
+}
+
+class ViewControllerRepository << (S, Orange) >> {
+    func numberOfSections() -> Int
+    func itemsOfCustomer() -> [String]
+    func itemsOfItem() -> [String]
+    func itemsOfAddress() -> [String]
+    func itemOfCustomer(index: Int) -> String?
+    func itemOfItem(index: Int) -> String?
+    func itemOfAddress(index: Int) -> String?
+}
+
+class ViewControllerDataStore << (S, Orange) >> {
+    func numberOfSections() -> Int
+    func itemsOfCustomer() -> [String]
+    func itemsOfItem() -> [String]
+    func itemsOfAddress() -> [String]
+    func itemOfCustomer(index: Int) -> String?
+    func itemOfItem(index: Int) -> String?
+    func itemOfAddress(index: Int) -> String?
+}
+
+class TestModel << (S, Orange) >> {
+    let customerName: String?
+    let itemName: String?
+    let address: String?
+}
+
+class ViewControllerTableViewCellUtilities << (S, Orange) >> {
+    func decorateCustomerCell(indexPath: IndexPath, value: String?) -> CustomerCell
+    func decorateItemCell(indexPath: IndexPath, value: String?) -> ItemCell
+    func decorateAddressCell(indexPath: IndexPath, value: String?) -> AddressCell
+}
+
+class ViewControllerTableViewSectionHeaderUtilities  << (S, Orange) >> {
+    func header(for sectionType: ViewControllerTableViewSectionType) -> UIView?
+    func height(for sectionType: ViewControllerTableViewSectionType, hasContent: Bool) -> CGFloat
+}
+
+class ViewControllerTableViewSectionFooterUtilities << (S, Orange) >> {
+    func footer(for sectionType: ViewControllerTableViewSectionType) -> UIView?
+    func height(for sectionType: ViewControllerTableViewSectionType, hasContent: Bool) -> CGFloat
+}
+
+
+enum ViewControllerTableViewSectionType {
+    case customer
+    case item
+    case address
+}
+
+ViewController -right- ViewControllerPresenter
+ViewController - ViewControllerWireframe
+ViewControllerPresenter -down- ViewControllerWireframe
+ViewControllerPresenter -right- ViewControllerUseCase
+ViewControllerUseCase -right- ViewControllerRepository
+ViewControllerRepository -right- ViewControllerDataStore
+
+ViewControllerPresenter -up- ViewControllerTableViewSectionType
+
+ViewController -left- ViewControllerTableViewCellUtilities
+ViewController -left- ViewControllerTableViewSectionHeaderUtilities
+ViewController -left- ViewControllerTableViewSectionFooterUtilities
+
+ViewControllerTableViewSectionType -down- ViewController
+ViewControllerTableViewSectionType -down- ViewControllerTableViewCellUtilities
+ViewControllerTableViewSectionType -down- ViewControllerTableViewSectionHeaderUtilities
+ViewControllerTableViewSectionType -down- ViewControllerTableViewSectionFooterUtilities
+
+ViewControllerDataStore -up- TestModel
+
+@enduml
