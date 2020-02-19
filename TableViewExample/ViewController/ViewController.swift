@@ -1,7 +1,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     lazy var presenter = ViewControllerPresenterBuilder.build(view: self)
     let sectionHeaderUtilities = ViewControllerTableViewSectionHeaderUtilities()
     let sectionFooterUtilities = ViewControllerTableViewSectionFooterUtilities()
@@ -20,7 +19,6 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         guard let cellModel = presenter.itemData(of: indexPath) else{
             fatalError("Unknown Sectin received.")
         }
