@@ -28,7 +28,7 @@ extension ViewControllerTableViewSectionFooterUtilities: ViewControllerTableView
     }
 
     func height(for footerModel: ViewControllerSectionFooterModel) -> CGFloat {
-        guard footerModel.isHidden == true else { return .leastNormalMagnitude }
+        guard footerModel.isHidden == false else { return .leastNormalMagnitude }
         switch footerModel.sectionType {
         case .customer:
             return 10.0

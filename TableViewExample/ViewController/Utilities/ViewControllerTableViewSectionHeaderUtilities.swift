@@ -28,7 +28,7 @@ extension ViewControllerTableViewSectionHeaderUtilities: ViewControllerTableView
     }
 
     func height(for headerModel: ViewControllerSectionHeaderModel) -> CGFloat {
-        guard headerModel.isHidden else { return .leastNormalMagnitude }
+        guard headerModel.isHidden == false else { return .leastNormalMagnitude }
         switch headerModel.sectionType {
         case .customer:
             return 30.0
