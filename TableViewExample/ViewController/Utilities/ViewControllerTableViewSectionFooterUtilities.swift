@@ -1,8 +1,8 @@
 import UIKit
 
 protocol ViewControllerTableViewSectionFooterUtilitiesProtocol {
-    func footer(for sectionType: ViewControllerTableViewSectionType) -> UIView?
-    func height(for sectionType: ViewControllerTableViewSectionType, hasContent: Bool) -> CGFloat
+    func footer(for footerModel: ViewControllerSectionFooterModel) -> UIView?
+    func height(for footerModel: ViewControllerSectionFooterModel) -> CGFloat
 }
 
 struct ViewControllerTableViewSectionFooterUtilities {
@@ -10,8 +10,8 @@ struct ViewControllerTableViewSectionFooterUtilities {
 }
 
 extension ViewControllerTableViewSectionFooterUtilities: ViewControllerTableViewSectionFooterUtilitiesProtocol {
-    func footer(for sectionType: ViewControllerTableViewSectionType) -> UIView? {
-        switch sectionType {
+    func footer(for footerModel: ViewControllerSectionFooterModel) -> UIView? {
+        switch footerModel.sectionType {
         case .customer:
             let view = UIView()
             view.backgroundColor = .lightGray
@@ -27,9 +27,9 @@ extension ViewControllerTableViewSectionFooterUtilities: ViewControllerTableView
         }
     }
 
-    func height(for sectionType: ViewControllerTableViewSectionType, hasContent: Bool) -> CGFloat {
-        guard hasContent == true else { return .leastNormalMagnitude }
-        switch sectionType {
+    func height(for footerModel: ViewControllerSectionFooterModel) -> CGFloat {
+        guard footerModel.isHidden == false else { return .leastNormalMagnitude }
+        switch footerModel.sectionType {
         case .customer:
             return 10.0
         case .item:

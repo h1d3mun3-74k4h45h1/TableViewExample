@@ -1,77 +1,113 @@
 import UIKit
 
 protocol ViewControllerPresenterProtocol {
-    func sectionType(of section: Int) -> ViewControllerTableViewSectionType
     func numberOfSections() -> Int
-    func itemsCountOfCustomer() -> Int
-    func itemsCountOfItem() -> Int
-    func itemsCountOfAddress() -> Int
-    func itemDataOfCustomer(index: Int) -> String?
-    func itemDataOfItem(index: Int) -> String?
-    func itemDataOfAddress(index: Int) -> String?
-    func didSelectCustomerRow(of index: Int)
-    func didSelectItemRow(of index: Int)
-    func didSelectAddressRow(of index: Int)
+    func numberOfRows(in section: Int) -> Int
+    func itemData(of indexPath: IndexPath) -> ViewControllerCellModel?
+    func sectionHeaderModel(of section: Int) -> ViewControllerSectionHeaderModel
+    func sectionFooterModel(of section: Int) -> ViewControllerSectionFooterModel
+    func didSelectRow(of indexPath: IndexPath)
 }
 
 final class ViewControllerPresenter {
     weak var view: UIViewController?
     let wireframe: ViewControllerWireframeProtocol
-    let useCase: ViewControllerUseCaseProtocol
+    let customerUseCase: ViewControllerUseCaseProtocol
+    let itemUseCase: ViewControllerUseCaseProtocol
+    let addressUseCase: ViewControllerUseCaseProtocol
 
-    init(view: UIViewController, wireframe: ViewControllerWireframeProtocol, useCase: ViewControllerUseCaseProtocol) {
+    init(view: UIViewController, wireframe: ViewControllerWireframeProtocol, customerUseCase: ViewControllerUseCaseProtocol, itemUseCase: ViewControllerUseCaseProtocol, addressUseCase: ViewControllerUseCaseProtocol) {
         self.view = view
         self.wireframe = wireframe
-        self.useCase = useCase
+        self.customerUseCase = customerUseCase
+        self.itemUseCase = itemUseCase
+        self.addressUseCase = addressUseCase
     }
 }
 
 extension ViewControllerPresenter: ViewControllerPresenterProtocol {
-    func sectionType(of section: Int) -> ViewControllerTableViewSectionType {
-        guard let sectionType = ViewControllerTableViewSectionType(rawValue: section) else { fatalError() }
-        return sectionType
-    }
-
     func numberOfSections() -> Int {
-        return useCase.numberOfSections()
+        return 3
     }
 
-    func itemsCountOfCustomer() -> Int {
-        return useCase.itemsOfCustomer().count
+    func numberOfRows(in section: Int) -> Int {
+        guard let sectionType = ViewControllerTableViewSectionType(rawValue: section) else {
+            fatalError("Unknown Section received.")
+        }
+
+        switch sectionType {
+        case .customer:
+            return customerUseCase.itemCount()
+        case .item:
+            return itemUseCase.itemCount()
+        case .address:
+            return addressUseCase.itemCount()
+        }
     }
 
-    func itemsCountOfItem() -> Int {
-        return useCase.itemsOfItem().count
+    func itemData(of indexPath: IndexPath) -> ViewControllerCellModel? {
+        guard let sectionType = ViewControllerTableViewSectionType(rawValue: indexPath.section) else {
+            fatalError("Unknown Section received.")
+        }
+
+        switch sectionType {
+        case .customer:
+            guard let data = customerUseCase.itemData(of: indexPath.row) else { return nil }
+            return ViewControllerCustomerCellModel(value: data)
+        case .item:
+            guard let data = itemUseCase.itemData(of: indexPath.row) else { return nil }
+            return ViewControllerItemCellModel(value: data)
+        case .address:
+            guard let data = addressUseCase.itemData(of: indexPath.row) else { return nil }
+            return ViewControllerAddressCellModel(value: data)
+        }
     }
 
-    func itemsCountOfAddress() -> Int {
-        return useCase.itemsOfAddress().count
+    func sectionHeaderModel(of section: Int) -> ViewControllerSectionHeaderModel {
+        guard let sectionType = ViewControllerTableViewSectionType(rawValue: section) else {
+            fatalError("Unknown Section received.")
+        }
+
+        switch sectionType {
+         case .customer:
+            return ViewControllerCustomerSectionHeaderModel(isHidden: customerUseCase.itemCount() == 0)
+         case .item:
+            return ViewControllerItemSectionHeaderModel(isHidden: itemUseCase.itemCount() == 0)
+         case .address:
+            return ViewControllerAddressSectionHeaderModel(isHidden: addressUseCase.itemCount() == 0)
+         }
     }
 
-    func itemDataOfCustomer(index: Int) -> String? {
-        return useCase.itemOfCustomer(index: index)
+    func sectionFooterModel(of section: Int) -> ViewControllerSectionFooterModel {
+        guard let sectionType = ViewControllerTableViewSectionType(rawValue: section) else {
+            fatalError("Unknown Section received.")
+        }
+
+        switch sectionType {
+         case .customer:
+            return ViewControllerCustomerSectionFooterModel(isHidden: customerUseCase.itemCount() == 0)
+         case .item:
+            return ViewControllerItemSectionFooterModel(isHidden: itemUseCase.itemCount() == 0)
+         case .address:
+            return ViewControllerAddressSectionFooterModel(isHidden: addressUseCase.itemCount() == 0)
+         }
     }
 
-    func itemDataOfItem(index: Int) -> String? {
-        return useCase.itemOfItem(index: index)
-    }
+    func didSelectRow(of indexPath: IndexPath) {
+        guard let sectionType = ViewControllerTableViewSectionType(rawValue: indexPath.section) else {
+            fatalError("Unknown Section received.")
+        }
 
-    func itemDataOfAddress(index: Int) -> String? {
-        return useCase.itemOfAddress(index: index)
-    }
-
-    func didSelectCustomerRow(of index: Int) {
-        guard let value = useCase.itemOfCustomer(index: index) else { return }
-        wireframe.showCustomerDetail(name: value)
-    }
-
-    func didSelectItemRow(of index: Int) {
-        guard let value = useCase.itemOfItem(index: index) else { return }
-        wireframe.showItemDetail(itemName: value)
-    }
-
-    func didSelectAddressRow(of index: Int) {
-        guard let value = useCase.itemOfAddress(index: index) else { return }
-        wireframe.showAddressDetail(address: value)
+        switch sectionType {
+        case .customer:
+            guard let value = customerUseCase.itemData(of: indexPath.section) else { return }
+            wireframe.showCustomerDetail(name: value)
+        case .item:
+            guard let value = itemUseCase.itemData(of: indexPath.section) else { return }
+            wireframe.showItemDetail(itemName: value)
+        case .address:
+            guard let value = addressUseCase.itemData(of: indexPath.section) else { return }
+            wireframe.showAddressDetail(address: value)
+        }
     }
 }

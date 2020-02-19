@@ -1,19 +1,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     lazy var presenter = ViewControllerPresenterBuilder.build(view: self)
-    var cellUtilities: ViewControllerTableVIewCellUtilities!
     let sectionHeaderUtilities = ViewControllerTableViewSectionHeaderUtilities()
     let sectionFooterUtilities = ViewControllerTableViewSectionFooterUtilities()
 
     @IBOutlet weak var tableView: UITableView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        cellUtilities = ViewControllerTableVIewCellUtilities(tableView: self.tableView)
-    }
-
 }
 
 
@@ -23,78 +15,46 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch presenter.sectionType(of: section) {
-        case .customer:
-            return presenter.itemsCountOfCustomer()
-        case .item:
-            return presenter.itemsCountOfItem()
-        case .address:
-            return presenter.itemsCountOfAddress()
-        }
+        return presenter.numberOfRows(in: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch presenter.sectionType(of: indexPath.section) {
-        case .customer:
-            return cellUtilities.decorateCustomerCell(
-                indexPath: indexPath,
-                value: presenter.itemDataOfCustomer(index: indexPath.row)
-            )
-        case .item:
-            return cellUtilities.decorateItemCell(
-                indexPath: indexPath,
-                value: presenter.itemDataOfItem(index: indexPath.row)
-            )
-        case .address:
-            return cellUtilities.decorateAddressCell(
-                indexPath: indexPath,
-                value: presenter.itemDataOfAddress(index: indexPath.row)
-            )
+        guard let cellModel = presenter.itemData(of: indexPath) else{
+            fatalError("Unknown Sectin received.")
         }
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.sectionType.cellIdentifier(), for: indexPath)
+
+        guard let configurableCell = cell as? ViewControllerConfigurableCell else {
+            return cell
+        }
+
+        configurableCell.configure(with: cellModel)
+
+        return cell
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return sectionHeaderUtilities.header(for: presenter.sectionType(of: section))
+        return sectionHeaderUtilities.header(for: presenter.sectionHeaderModel(of: section))
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return sectionFooterUtilities.footer(for: presenter.sectionType(of: section))
+        return sectionFooterUtilities.footer(for: presenter.sectionFooterModel(of: section))
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch presenter.sectionType(of: section) {
-        case .customer:
-            return sectionHeaderUtilities.height(for: .customer, hasContent: presenter.itemsCountOfCustomer() != 0)
-        case .item:
-            return sectionHeaderUtilities.height(for: .item, hasContent: presenter.itemsCountOfItem() != 0)
-        case .address:
-            return sectionHeaderUtilities.height(for: .address, hasContent: presenter.itemsCountOfAddress() != 0)
-        }
+        return sectionHeaderUtilities.height(for: presenter.sectionHeaderModel(of: section))
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        switch presenter.sectionType(of: section) {
-        case .customer:
-            return sectionFooterUtilities.height(for: .customer, hasContent: presenter.itemsCountOfCustomer() != 0)
-        case .item:
-            return sectionFooterUtilities.height(for: .item, hasContent: presenter.itemsCountOfItem() != 0)
-        case .address:
-            return sectionFooterUtilities.height(for: .address, hasContent: presenter.itemsCountOfAddress() != 0)
-        }
+        return sectionFooterUtilities.height(for: presenter.sectionFooterModel(of: section))
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch presenter.sectionType(of: indexPath.section) {
-        case .customer:
-            presenter.didSelectCustomerRow(of: indexPath.row)
-        case .item:
-            presenter.didSelectItemRow(of: indexPath.row)
-        case .address:
-            presenter.didSelectAddressRow(of: indexPath.row)
-        }
-        
+        presenter.didSelectRow(of: indexPath)
+
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
