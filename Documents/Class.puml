@@ -1,119 +1,252 @@
 @startuml
 
-class ViewController {
-    func numberOfSections(in tableView: UITableView) -> Int
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+class CustomerCell {
 
-
-    let tableView: UITableView
-    let cellUtilities: ViewControllerTableViewCellUtilities
-    let sectionHeaderUtilities: ViewControllerTableViewSectionHeaderUtilities
-    let sectionFooterUtilities: ViewControllerTableViewSectionFooterUtilities
 }
 
-class ViewControllerPresenter {
-    func sectionType(of section: Int) -> ViewControllerTableViewSectionType
-    func numberOfSections() -> Int
-    func itemsCountOfCustomer() -> Int
-    func itemsCountOfItem() -> Int
-    func itemsCountOfAddress() -> Int
-    func itemDataOfCustomer(index: Int) -> String?
-    func itemDataOfItem(index: Int) -> String?
-    func itemDataOfAddress(index: Int) -> String?
-    func didSelectCustomerRow(of index: Int)
-    func didSelectItemRow(of index: Int)
-    func didSelectAddressRow(of index: Int)
+class ItemCell {
+
 }
 
-class ViewControllerWireframe {
-    func showCustomerDetail(name: String)
-    func showItemDetail(itemName: String)
-    func showAddressDetail(address: String)
+class AddressCell {
+
 }
 
-class ViewControllerUseCase  << (S, Orange) >> {
-    func numberOfSections() -> Int
-    func itemsOfCustomer() -> [String]
-    func itemsOfItem() -> [String]
-    func itemsOfAddress() -> [String]
-    func itemOfCustomer(index: Int) -> String?
-    func itemOfItem(index: Int) -> String?
-    func itemOfAddress(index: Int) -> String?
+abstract ViewControllerConfigurableCell << (P, GoldenRod) >> {
+    func configure(with cellModel: ViewControllerCellModel)
 }
 
-class ViewControllerRepository << (S, Orange) >> {
-    func numberOfSections() -> Int
-    func itemsOfCustomer() -> [String]
-    func itemsOfItem() -> [String]
-    func itemsOfAddress() -> [String]
-    func itemOfCustomer(index: Int) -> String?
-    func itemOfItem(index: Int) -> String?
-    func itemOfAddress(index: Int) -> String?
+CustomerCell -down- ViewControllerConfigurableCell
+ItemCell -down- ViewControllerConfigurableCell
+AddressCell -down- ViewControllerConfigurableCell
+
+
+class ViewControllerCustomerCellModel << (S, Orange) >> {
+    let value: String
 }
 
-class ViewControllerDataStore << (S, Orange) >> {
-    func numberOfSections() -> Int
-    func itemsOfCustomer() -> [String]
-    func itemsOfItem() -> [String]
-    func itemsOfAddress() -> [String]
-    func itemOfCustomer(index: Int) -> String?
-    func itemOfItem(index: Int) -> String?
-    func itemOfAddress(index: Int) -> String?
+class ViewControllerItemCellModel << (S, Orange) >> {
+    let value: String
 }
 
-class TestModel << (S, Orange) >> {
-    let customerName: String?
-    let itemName: String?
-    let address: String?
+class ViewControllerAddressCellModel << (S, Orange) >> {
+    let value: String
 }
 
-class ViewControllerTableViewCellUtilities << (S, Orange) >> {
-    func decorateCustomerCell(indexPath: IndexPath, value: String?) -> CustomerCell
-    func decorateItemCell(indexPath: IndexPath, value: String?) -> ItemCell
-    func decorateAddressCell(indexPath: IndexPath, value: String?) -> AddressCell
+abstract ViewControllerCellModel<< (P, GoldenRod) >> {
+    var sectionType: ViewControllerTableViewSectionType { get }
 }
 
-class ViewControllerTableViewSectionHeaderUtilities  << (S, Orange) >> {
-    func header(for sectionType: ViewControllerTableViewSectionType) -> UIView?
-    func height(for sectionType: ViewControllerTableViewSectionType, hasContent: Bool) -> CGFloat
+ViewControllerCustomerCellModel -down- ViewControllerCellModel
+ViewControllerItemCellModel -down- ViewControllerCellModel
+ViewControllerAddressCellModel -down- ViewControllerCellModel
+
+class ViewControllerCustomerSectionHeaderModel << (S, Orange) >> {
 }
 
-class ViewControllerTableViewSectionFooterUtilities << (S, Orange) >> {
-    func footer(for sectionType: ViewControllerTableViewSectionType) -> UIView?
-    func height(for sectionType: ViewControllerTableViewSectionType, hasContent: Bool) -> CGFloat
+class ViewControllerItemSectionHeaderModel << (S, Orange) >> {
 }
 
+class ViewControllerAddressSectionHeaderModel << (S, Orange) >> {
+}
+
+abstract ViewControllerSectionHeaderModel << (P, GoldenRod) >> {
+    var sectionType: ViewControllerTableViewSectionType { get }
+    var isHidden: Bool { get }
+}
+
+ViewControllerCustomerSectionHeaderModel -down-ViewControllerSectionHeaderModel
+ViewControllerItemSectionHeaderModel -down-ViewControllerSectionHeaderModel
+ViewControllerAddressSectionHeaderModel -down-ViewControllerSectionHeaderModel
+
+class ViewControllerCustomerSectionFooterModel << (S, Orange) >> {
+}
+
+class ViewControllerItemSectionFooterModel << (S, Orange) >> {
+}
+
+class ViewControllerAddressSectionFooterModel << (S, Orange) >> {
+}
+
+abstract ViewControllerSectionFooterModel << (P, GoldenRod) >> {
+    var sectionType: ViewControllerTableViewSectionType { get }
+    var isHidden: Bool { get }
+}
+
+ViewControllerCustomerSectionFooterModel -down- ViewControllerSectionFooterModel
+ViewControllerItemSectionFooterModel -down- ViewControllerSectionFooterModel
+ViewControllerAddressSectionFooterModel -down- ViewControllerSectionFooterModel
 
 enum ViewControllerTableViewSectionType {
     case customer
     case item
     case address
+
+    func cellIdentifier() -> String
 }
 
-ViewController -right- ViewControllerPresenter
-ViewController - ViewControllerWireframe
-ViewControllerPresenter -down- ViewControllerWireframe
-ViewControllerPresenter -right- ViewControllerUseCase
-ViewControllerUseCase -right- ViewControllerRepository
-ViewControllerRepository -right- ViewControllerDataStore
+ViewControllerCellModel -down- ViewControllerTableViewSectionType
+ViewControllerSectionHeaderModel -down- ViewControllerTableViewSectionType
+ViewControllerSectionFooterModel -down- ViewControllerTableViewSectionType
 
-ViewControllerPresenter -up- ViewControllerTableViewSectionType
+class ViewControllerWireframe {
+    weak var view: UIViewController?
 
-ViewController -left- ViewControllerTableViewCellUtilities
-ViewController -left- ViewControllerTableViewSectionHeaderUtilities
-ViewController -left- ViewControllerTableViewSectionFooterUtilities
+    func showCustomerDetail(name: String)
+    func showItemDetail(itemName: String)
+    func showAddressDetail(address: String)
+}
 
-ViewControllerTableViewSectionType -down- ViewController
-ViewControllerTableViewSectionType -down- ViewControllerTableViewCellUtilities
-ViewControllerTableViewSectionType -down- ViewControllerTableViewSectionHeaderUtilities
-ViewControllerTableViewSectionType -down- ViewControllerTableViewSectionFooterUtilities
+class ViewController {
+    var tableView: UITableView
+    func numberOfSections(in tableView: UITableView) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
 
-ViewControllerDataStore -up- TestModel
+}
+
+class ViewControllerPresenter {
+    weak var view: UIViewController?
+    let wireframe: ViewControllerWireframeProtocol
+    let customerUseCase: ViewControllerUseCaseProtocol
+    let itemUseCase: ViewControllerUseCaseProtocol
+    let addressUseCase: ViewControllerUseCaseProtocol
+
+    func numberOfSections() -> Int
+    func numberOfRows(in section: Int) -> Int
+    func itemData(of indexPath: IndexPath) -> ViewControllerCellModel?
+    func sectionHeaderModel(of section: Int) -> ViewControllerSectionHeaderModel
+    func sectionFooterModel(of section: Int) -> ViewControllerSectionFooterModel
+    func didSelectRow(of indexPath: IndexPath)
+}
+
+nameSpace ViewControllerCustomerUseCase{
+    class ViewControllerCustomerUseCase << (S, Orange) >> {
+        let useCaseInput: ViewControllerCustomerUseCaseInput
+    }
+
+    abstract ViewControllerCustomerUseCaseInput << (P, GoldenRod) >> {
+        func itemCount() -> Int
+        func itemData(of index: Int) -> String?
+    }
+
+    class ViewControllerCustomerRepository << (S, Orange) >> {
+        let repositoryInput: ViewControllerCustomerRepositoryInput
+    }
+
+    abstract ViewControllerCustomerRepositoryInput << (P, GoldenRod) >> {
+        func itemCount() -> Int
+        func itemData(of index: Int) -> String?
+    }
+
+    class ViewControllerCustomerDataStore << (S, Orange) >> {
+        let customerName: String?
+    }
+
+    ViewControllerCustomerUseCase -right- ViewControllerCustomerRepository
+    ViewControllerCustomerRepository -right- ViewControllerCustomerDataStore
+
+    ViewControllerCustomerUseCaseInput -up- ViewControllerCustomerRepository
+    ViewControllerCustomerRepositoryInput -up- ViewControllerCustomerDataStore
+}
+
+namespace ViewControllerItemUseCase {
+    class ViewControllerItemUseCase << (S, Orange) >> {
+        let useCaseInput: ViewControllerItemUseCaseInput
+    }
+
+    abstract ViewControllerItemUseCaseInput << (P, GoldenRod) >> {
+        func itemCount() -> Int
+        func itemData(of index: Int) -> String?
+    }
+
+    class ViewControllerItemRepository << (S, Orange) >> {
+        let repositoryInput: ViewControllerItemRepositoryInput
+    }
+
+    abstract ViewControllerItemRepositoryInput << (P, GoldenRod) >> {
+        func itemCount() -> Int
+        func itemData(of index: Int) -> String?
+    }
+
+    class ViewControllerItemDataStore << (S, Orange) >> {
+        let value: String?
+    }
+
+    ViewControllerItemUseCase -right- ViewControllerItemRepository
+    ViewControllerItemRepository -right- ViewControllerItemDataStore
+
+    ViewControllerItemUseCaseInput -up- ViewControllerItemRepository
+    ViewControllerItemRepositoryInput -up- ViewControllerItemDataStore
+}
+
+namespace ViewControllerAddressUseCase {
+    class ViewControllerAddressUseCase << (S, Orange) >> {
+        let useCaseInput: ViewControllerAddressUseCaseInput
+    }
+
+    abstract ViewControllerAddressUseCaseInput << (P, GoldenRod) >> {
+        func itemCount() -> Int
+        func itemData(of index: Int) -> String?
+    }
+
+    class ViewControllerAddressRepository << (S, Orange) >> {
+        let repositoryInput: ViewControllerAddressRepositoryInput
+    }
+
+    abstract ViewControllerAddressRepositoryInput << (P, GoldenRod) >> {
+        func itemCount() -> Int
+        func itemData(of index: Int) -> String?
+    }
+
+    class ViewControllerAddressDataStore << (S, Orange) >> {
+        let value: String?
+    }
+
+    abstract ViewControllerUseCaseProtocol << (P, GoldenRod) >> {
+        func itemCount() -> Int
+        func itemData(of index: Int) -> String?
+    }
+
+    ViewControllerAddressUseCase -right- ViewControllerAddressRepository
+    ViewControllerAddressRepository -right- ViewControllerAddressDataStore
+
+    ViewControllerAddressUseCaseInput -up- ViewControllerAddressRepository
+    ViewControllerAddressRepositoryInput -up- ViewControllerAddressDataStore
+}
+
+class ViewControllerTableViewSectionHeaderUtilities << (S, Orange) >> {
+    func header(for headerModel: ViewControllerSectionHeaderModel) -> UIView?
+    func height(for headerModel: ViewControllerSectionHeaderModel) -> CGFloat
+}
+
+class ViewControllerTableViewSectionFooterUtilities << (S, Orange) >> {
+    func footer(for footerModel: ViewControllerSectionFooterModel) -> UIView?
+    func height(for footerModel: ViewControllerSectionFooterModel) -> CGFloat
+}
+
+ViewController -down- ViewControllerPresenter
+ViewController -left- ViewControllerWireframe
+ViewControllerPresenter -left- ViewControllerWireframe
+ViewControllerPresenter -down- ViewControllerCustomerUseCase
+ViewControllerPresenter -down- ViewControllerItemUseCase
+ViewControllerPresenter -down- ViewControllerAddressUseCase
+
+ViewController - ViewControllerConfigurableCell
+ViewController -up- ViewControllerCellModel
+ViewController -up- ViewControllerTableViewSectionType
+ViewController -up- ViewControllerSectionHeaderModel
+ViewController -up- ViewControllerSectionFooterModel
+
+ViewControllerPresenter - ViewControllerTableViewSectionType
+
+ViewController -right- ViewControllerTableViewSectionHeaderUtilities
+ViewControllerTableViewSectionHeaderUtilities - ViewControllerSectionHeaderModel
+ViewController -right- ViewControllerTableViewSectionFooterUtilities
+ViewControllerTableViewSectionFooterUtilities - ViewControllerSectionFooterModel
 
 @enduml
