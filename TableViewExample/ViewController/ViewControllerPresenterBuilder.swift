@@ -2,7 +2,6 @@ import UIKit
 
 struct ViewControllerPresenterBuilder {
     static func build(view: ViewController) -> ViewControllerPresenter {
-        
         let customerDataStore = CustomerDataStore(customerName: "Test Customer")
         let customerRepository = CustomerRepository(repositoryInput: customerDataStore)
         let customerUseCase = CustomerUseCase(useCaseInput: customerRepository)

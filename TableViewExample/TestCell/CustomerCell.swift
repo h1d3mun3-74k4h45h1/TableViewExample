@@ -4,9 +4,9 @@ final class CustomerCell: UITableViewCell {
     @IBOutlet weak var customerName: UILabel!
 }
 
-extension CustomerCell: ViewControllerConfigurableCell {
-    func configure(with cellModel: ViewControllerCellModel) {
-        guard let customerCellModel = cellModel as? ViewControllerCustomerCellModel else {
+extension CustomerCell: ConfigurableCell {
+    func configure(with cellModel: CellModel) {
+        guard let customerCellModel = cellModel as? CustomerCellModel else {
             fatalError("Unsupported CellModel received.")
         }
 

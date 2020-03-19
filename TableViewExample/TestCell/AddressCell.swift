@@ -4,9 +4,9 @@ final class AddressCell: UITableViewCell {
     @IBOutlet weak var addressName: UILabel!
 }
 
-extension AddressCell: ViewControllerConfigurableCell {
-    func configure(with cellModel: ViewControllerCellModel) {
-        guard let addressCellModel = cellModel as? ViewControllerAddressCellModel else {
+extension AddressCell: ConfigurableCell {
+    func configure(with cellModel: CellModel) {
+        guard let addressCellModel = cellModel as? AddressCellModel else {
             fatalError("Unsupported CellModel received.")
         }
 

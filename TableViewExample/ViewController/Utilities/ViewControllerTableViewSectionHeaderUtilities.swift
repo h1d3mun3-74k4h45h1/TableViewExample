@@ -1,8 +1,8 @@
 import UIKit
 
 protocol ViewControllerTableViewSectionHeaderUtilitiesProtocol {
-    func header(for headerModel: ViewControllerSectionHeaderModel) -> UIView?
-    func height(for headerModel: ViewControllerSectionHeaderModel) -> CGFloat
+    func header(for headerModel: SectionHeaderModel) -> UIView?
+    func height(for headerModel: SectionHeaderModel) -> CGFloat
 }
 
 struct ViewControllerTableViewSectionHeaderUtilities {
@@ -10,7 +10,7 @@ struct ViewControllerTableViewSectionHeaderUtilities {
 }
 
 extension ViewControllerTableViewSectionHeaderUtilities: ViewControllerTableViewSectionHeaderUtilitiesProtocol {
-    func header(for headerModel: ViewControllerSectionHeaderModel) -> UIView? {
+    func header(for headerModel: SectionHeaderModel) -> UIView? {
         switch headerModel.sectionType {
         case .customer:
             let view = UIView()
@@ -27,7 +27,7 @@ extension ViewControllerTableViewSectionHeaderUtilities: ViewControllerTableView
         }
     }
 
-    func height(for headerModel: ViewControllerSectionHeaderModel) -> CGFloat {
+    func height(for headerModel: SectionHeaderModel) -> CGFloat {
         guard headerModel.isHidden == false else { return .leastNormalMagnitude }
         switch headerModel.sectionType {
         case .customer:

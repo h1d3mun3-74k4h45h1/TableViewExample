@@ -4,9 +4,9 @@ final class ItemCell: UITableViewCell {
     @IBOutlet weak var itemName: UILabel!
 }
 
-extension ItemCell: ViewControllerConfigurableCell {
-    func configure(with cellModel: ViewControllerCellModel) {
-        guard let itemCellModel = cellModel as? ViewControllerItemCellModel else {
+extension ItemCell: ConfigurableCell {
+    func configure(with cellModel: CellModel) {
+        guard let itemCellModel = cellModel as? ItemCellModel else {
             fatalError("Unsupported CellModel received.")
         }
 

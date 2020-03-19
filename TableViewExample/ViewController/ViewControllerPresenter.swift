@@ -3,9 +3,9 @@ import UIKit
 protocol ViewControllerPresenterProtocol {
     func numberOfSections() -> Int
     func numberOfRows(in section: Int) -> Int
-    func itemData(of indexPath: IndexPath) -> ViewControllerCellModel?
-    func sectionHeaderModel(of section: Int) -> ViewControllerSectionHeaderModel
-    func sectionFooterModel(of section: Int) -> ViewControllerSectionFooterModel
+    func itemData(of indexPath: IndexPath) -> CellModel?
+    func sectionHeaderModel(of section: Int) -> SectionHeaderModel
+    func sectionFooterModel(of section: Int) -> SectionFooterModel
     func didSelectRow(of indexPath: IndexPath)
 }
 
@@ -31,7 +31,7 @@ extension ViewControllerPresenter: ViewControllerPresenterProtocol {
     }
 
     func numberOfRows(in section: Int) -> Int {
-        guard let sectionType = ViewControllerTableViewSectionType(rawValue: section) else {
+        guard let sectionType = TableViewSectionType(rawValue: section) else {
             fatalError("Unknown Section received.")
         }
 
@@ -45,56 +45,56 @@ extension ViewControllerPresenter: ViewControllerPresenterProtocol {
         }
     }
 
-    func itemData(of indexPath: IndexPath) -> ViewControllerCellModel? {
-        guard let sectionType = ViewControllerTableViewSectionType(rawValue: indexPath.section) else {
+    func itemData(of indexPath: IndexPath) -> CellModel? {
+        guard let sectionType = TableViewSectionType(rawValue: indexPath.section) else {
             fatalError("Unknown Section received.")
         }
 
         switch sectionType {
         case .customer:
             guard let data = customerUseCase.itemData(of: indexPath.row) else { return nil }
-            return ViewControllerCustomerCellModel(value: data)
+            return CustomerCellModel(value: data)
         case .item:
             guard let data = itemUseCase.itemData(of: indexPath.row) else { return nil }
-            return ViewControllerItemCellModel(value: data)
+            return ItemCellModel(value: data)
         case .address:
             guard let data = addressUseCase.itemData(of: indexPath.row) else { return nil }
-            return ViewControllerAddressCellModel(value: data)
+            return AddressCellModel(value: data)
         }
     }
 
-    func sectionHeaderModel(of section: Int) -> ViewControllerSectionHeaderModel {
-        guard let sectionType = ViewControllerTableViewSectionType(rawValue: section) else {
+    func sectionHeaderModel(of section: Int) -> SectionHeaderModel {
+        guard let sectionType = TableViewSectionType(rawValue: section) else {
             fatalError("Unknown Section received.")
         }
 
         switch sectionType {
          case .customer:
-            return ViewControllerCustomerSectionHeaderModel(isHidden: customerUseCase.itemCount() == 0)
+            return CustomerSectionHeaderModel(isHidden: customerUseCase.itemCount() == 0)
          case .item:
-            return ViewControllerItemSectionHeaderModel(isHidden: itemUseCase.itemCount() == 0)
+            return ItemSectionHeaderModel(isHidden: itemUseCase.itemCount() == 0)
          case .address:
-            return ViewControllerAddressSectionHeaderModel(isHidden: addressUseCase.itemCount() == 0)
+            return AddressSectionHeaderModel(isHidden: addressUseCase.itemCount() == 0)
          }
     }
 
-    func sectionFooterModel(of section: Int) -> ViewControllerSectionFooterModel {
-        guard let sectionType = ViewControllerTableViewSectionType(rawValue: section) else {
+    func sectionFooterModel(of section: Int) -> SectionFooterModel {
+        guard let sectionType = TableViewSectionType(rawValue: section) else {
             fatalError("Unknown Section received.")
         }
 
         switch sectionType {
          case .customer:
-            return ViewControllerCustomerSectionFooterModel(isHidden: customerUseCase.itemCount() == 0)
+            return CustomerSectionFooterModel(isHidden: customerUseCase.itemCount() == 0)
          case .item:
-            return ViewControllerItemSectionFooterModel(isHidden: itemUseCase.itemCount() == 0)
+            return ItemSectionFooterModel(isHidden: itemUseCase.itemCount() == 0)
          case .address:
-            return ViewControllerAddressSectionFooterModel(isHidden: addressUseCase.itemCount() == 0)
+            return AddressSectionFooterModel(isHidden: addressUseCase.itemCount() == 0)
          }
     }
 
     func didSelectRow(of indexPath: IndexPath) {
-        guard let sectionType = ViewControllerTableViewSectionType(rawValue: indexPath.section) else {
+        guard let sectionType = TableViewSectionType(rawValue: indexPath.section) else {
             fatalError("Unknown Section received.")
         }
 

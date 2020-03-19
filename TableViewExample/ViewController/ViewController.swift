@@ -25,7 +25,7 @@ extension ViewController: UITableViewDataSource {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.sectionType.cellIdentifier(), for: indexPath)
 
-        guard let configurableCell = cell as? ViewControllerConfigurableCell else {
+        guard let configurableCell = cell as? ConfigurableCell else {
             return cell
         }
 
