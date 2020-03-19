@@ -1,8 +1,8 @@
-struct ViewControllerCustomerDataStore {
+struct CustomerDataStore {
     let customerName: String?
 }
 
-extension ViewControllerCustomerDataStore: ViewControllerCustomerRepositoryInput {
+extension CustomerDataStore: CustomerRepositoryInput {
     func itemCount() -> Int {
         return 1
     }

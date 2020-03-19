@@ -3,17 +3,17 @@ import UIKit
 struct ViewControllerPresenterBuilder {
     static func build(view: ViewController) -> ViewControllerPresenter {
         
-        let customerDataStore = ViewControllerCustomerDataStore(customerName: "Test Customer")
-        let customerRepository = ViewControllerCustomerRepository(repositoryInput: customerDataStore)
-        let customerUseCase = ViewControllerCustomerUseCase(useCaseInput: customerRepository)
+        let customerDataStore = CustomerDataStore(customerName: "Test Customer")
+        let customerRepository = CustomerRepository(repositoryInput: customerDataStore)
+        let customerUseCase = CustomerUseCase(useCaseInput: customerRepository)
 
-        let itemDataStore = ViewControllerItemDataStore(value: "Test Customer")
-        let itemRepository = ViewControllerItemRepository(repositoryInput: itemDataStore)
-        let itemUseCase = ViewControllerItemUseCase(useCaseInput: itemRepository)
+        let itemDataStore = ItemDataStore(value: "Test Customer")
+        let itemRepository = ItemRepository(repositoryInput: itemDataStore)
+        let itemUseCase = ItemUseCase(useCaseInput: itemRepository)
 
-        let addressDataStore = ViewControllerAddressDataStore(value: "Test Address")
-        let addressRepository = ViewControllerAddressRepository(repositoryInput: addressDataStore)
-        let addressUseCase = ViewControllerAddressUseCase(useCaseInput: addressRepository)
+        let addressDataStore = AddressDataStore(value: "Test Address")
+        let addressRepository = AddressRepository(repositoryInput: addressDataStore)
+        let addressUseCase = AddressUseCase(useCaseInput: addressRepository)
 
         let wireframe = ViewControllerWireframe(view: view)
         let presenter = ViewControllerPresenter(

@@ -1,8 +1,8 @@
-struct ViewControllerAddressDataStore {
+struct ItemDataStore {
     let value: String?
 }
 
-extension ViewControllerAddressDataStore: ViewControllerAddressRepositoryInput {
+extension ItemDataStore: ItemRepositoryInput {
     func itemCount() -> Int {
         return 1
     }

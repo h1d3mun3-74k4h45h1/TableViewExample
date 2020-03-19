@@ -1,13 +1,13 @@
-protocol ViewControllerAddressUseCaseInput {
+protocol CustomerUseCaseInput {
     func itemCount() -> Int
     func itemData(of index: Int) -> String?
 }
 
-struct ViewControllerAddressUseCase {
-    let useCaseInput: ViewControllerAddressUseCaseInput
+struct CustomerUseCase {
+    let useCaseInput: CustomerUseCaseInput
 }
 
-extension ViewControllerAddressUseCase: ViewControllerUseCaseProtocol {
+extension CustomerUseCase: UseCaseProtocol {
     func itemCount() -> Int {
         return useCaseInput.itemCount()
     }

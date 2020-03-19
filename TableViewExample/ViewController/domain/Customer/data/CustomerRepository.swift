@@ -1,13 +1,13 @@
-protocol ViewControllerAddressRepositoryInput {
+protocol CustomerRepositoryInput {
     func itemCount() -> Int
     func itemData(of index: Int) -> String?
 }
 
-struct ViewControllerAddressRepository {
-    let repositoryInput: ViewControllerAddressRepositoryInput
+struct CustomerRepository {
+    let repositoryInput: CustomerRepositoryInput
 }
 
-extension ViewControllerAddressRepository: ViewControllerAddressUseCaseInput {
+extension CustomerRepository: CustomerUseCaseInput {
     func itemCount() -> Int {
         return repositoryInput.itemCount()
     }
