@@ -46,8 +46,8 @@
 		1274CD5A23EC0E0200516E74 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD5923EC0E0200516E74 /* ItemCell.swift */; };
 		1274CD5C23EC0E0800516E74 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD5B23EC0E0800516E74 /* AddressCell.swift */; };
 		1274CD5F23EC0EC300516E74 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD5E23EC0EC300516E74 /* TestModel.swift */; };
-		12BBA3C823FA562B004644CE /* ViewControllerTableViewSectionHeaderUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BBA3C723FA562B004644CE /* ViewControllerTableViewSectionHeaderUtilities.swift */; };
-		12BBA3CA23FA5637004644CE /* ViewControllerTableViewSectionFooterUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BBA3C923FA5637004644CE /* ViewControllerTableViewSectionFooterUtilities.swift */; };
+		12BBA3C823FA562B004644CE /* TableViewSectionHeaderUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BBA3C723FA562B004644CE /* TableViewSectionHeaderUtilities.swift */; };
+		12BBA3CA23FA5637004644CE /* TableViewSectionFooterUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BBA3C923FA5637004644CE /* TableViewSectionFooterUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,8 +115,8 @@
 		1274CD5923EC0E0200516E74 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		1274CD5B23EC0E0800516E74 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		1274CD5E23EC0EC300516E74 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
-		12BBA3C723FA562B004644CE /* ViewControllerTableViewSectionHeaderUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewSectionHeaderUtilities.swift; sourceTree = "<group>"; };
-		12BBA3C923FA5637004644CE /* ViewControllerTableViewSectionFooterUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewSectionFooterUtilities.swift; sourceTree = "<group>"; };
+		12BBA3C723FA562B004644CE /* TableViewSectionHeaderUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeaderUtilities.swift; sourceTree = "<group>"; };
+		12BBA3C923FA5637004644CE /* TableViewSectionFooterUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionFooterUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +147,8 @@
 		122092A523F68311005697B8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				12BBA3C723FA562B004644CE /* ViewControllerTableViewSectionHeaderUtilities.swift */,
-				12BBA3C923FA5637004644CE /* ViewControllerTableViewSectionFooterUtilities.swift */,
+				12BBA3C723FA562B004644CE /* TableViewSectionHeaderUtilities.swift */,
+				12BBA3C923FA5637004644CE /* TableViewSectionFooterUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -498,11 +498,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12BBA3CA23FA5637004644CE /* ViewControllerTableViewSectionFooterUtilities.swift in Sources */,
+				12BBA3CA23FA5637004644CE /* TableViewSectionFooterUtilities.swift in Sources */,
 				1226C25D23FCE2E100B96FD9 /* CustomerSectionHeaderModel.swift in Sources */,
 				1226C25623FCE26500B96FD9 /* SectionHeaderModel.swift in Sources */,
 				1260807323F67799009CD94A /* GetCustomerRepository.swift in Sources */,
-				12BBA3C823FA562B004644CE /* ViewControllerTableViewSectionHeaderUtilities.swift in Sources */,
+				12BBA3C823FA562B004644CE /* TableViewSectionHeaderUtilities.swift in Sources */,
 				1226C25F23FCE2EC00B96FD9 /* ItemSectionHeaderModel.swift in Sources */,
 				1260806C23F67237009CD94A /* GetCustomerUseCase.swift in Sources */,
 				1226C25123FCDDAA00B96FD9 /* AddressCellModel.swift in Sources */,

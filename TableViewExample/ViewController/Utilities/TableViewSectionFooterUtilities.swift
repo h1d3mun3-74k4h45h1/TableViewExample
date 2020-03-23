@@ -1,15 +1,15 @@
 import UIKit
 
-protocol ViewControllerTableViewSectionFooterUtilitiesProtocol {
+protocol TableViewSectionFooterUtilitiesProtocol {
     func footer(for footerModel: SectionFooterModel) -> UIView?
     func height(for footerModel: SectionFooterModel) -> CGFloat
 }
 
-struct ViewControllerTableViewSectionFooterUtilities {
+struct TableViewSectionFooterUtilities {
 
 }
 
-extension ViewControllerTableViewSectionFooterUtilities: ViewControllerTableViewSectionFooterUtilitiesProtocol {
+extension TableViewSectionFooterUtilities: TableViewSectionFooterUtilitiesProtocol {
     func footer(for footerModel: SectionFooterModel) -> UIView? {
         switch footerModel.sectionType {
         case .customer:

@@ -1,15 +1,15 @@
 import UIKit
 
-protocol ViewControllerTableViewSectionHeaderUtilitiesProtocol {
+protocol TableViewSectionHeaderUtilitiesProtocol {
     func header(for headerModel: SectionHeaderModel) -> UIView?
     func height(for headerModel: SectionHeaderModel) -> CGFloat
 }
 
-struct ViewControllerTableViewSectionHeaderUtilities {
+struct TableViewSectionHeaderUtilities {
     
 }
 
-extension ViewControllerTableViewSectionHeaderUtilities: ViewControllerTableViewSectionHeaderUtilitiesProtocol {
+extension TableViewSectionHeaderUtilities: TableViewSectionHeaderUtilitiesProtocol {
     func header(for headerModel: SectionHeaderModel) -> UIView? {
         switch headerModel.sectionType {
         case .customer:

@@ -2,8 +2,8 @@ import UIKit
 
 class ViewController: UIViewController {
     lazy var presenter = ViewControllerPresenterBuilder.build(view: self)
-    let sectionHeaderUtilities = ViewControllerTableViewSectionHeaderUtilities()
-    let sectionFooterUtilities = ViewControllerTableViewSectionFooterUtilities()
+    let sectionHeaderUtilities = TableViewSectionHeaderUtilities()
+    let sectionFooterUtilities = TableViewSectionFooterUtilities()
 
     @IBOutlet weak var tableView: UITableView!
 }
