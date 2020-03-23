@@ -12,72 +12,72 @@ class AddressCell {
 
 }
 
-abstract ViewControllerConfigurableCell << (P, GoldenRod) >> {
-    func configure(with cellModel: ViewControllerCellModel)
+abstract ConfigurableCell << (P, GoldenRod) >> {
+    func configure(with cellModel: CellModel)
 }
 
-CustomerCell -down- ViewControllerConfigurableCell
-ItemCell -down- ViewControllerConfigurableCell
-AddressCell -down- ViewControllerConfigurableCell
+CustomerCell -down- ConfigurableCell
+ItemCell -down- ConfigurableCell
+AddressCell -down- ConfigurableCell
 
 
-class ViewControllerCustomerCellModel << (S, Orange) >> {
+class CustomerCellModel << (S, Orange) >> {
     let value: String
 }
 
-class ViewControllerItemCellModel << (S, Orange) >> {
+class ItemCellModel << (S, Orange) >> {
     let value: String
 }
 
-class ViewControllerAddressCellModel << (S, Orange) >> {
+class AddressCellModel << (S, Orange) >> {
     let value: String
 }
 
-abstract ViewControllerCellModel<< (P, GoldenRod) >> {
-    var sectionType: ViewControllerTableViewSectionType { get }
+abstract CellModel<< (P, GoldenRod) >> {
+    var sectionType: TableViewSectionType { get }
 }
 
-ViewControllerCustomerCellModel -down- ViewControllerCellModel
-ViewControllerItemCellModel -down- ViewControllerCellModel
-ViewControllerAddressCellModel -down- ViewControllerCellModel
+CustomerCellModel -down- CellModel
+ItemCellModel -down- CellModel
+AddressCellModel -down- CellModel
 
-class ViewControllerCustomerSectionHeaderModel << (S, Orange) >> {
+class CustomerSectionHeaderModel << (S, Orange) >> {
 }
 
-class ViewControllerItemSectionHeaderModel << (S, Orange) >> {
+class ItemSectionHeaderModel << (S, Orange) >> {
 }
 
-class ViewControllerAddressSectionHeaderModel << (S, Orange) >> {
+class AddressSectionHeaderModel << (S, Orange) >> {
 }
 
-abstract ViewControllerSectionHeaderModel << (P, GoldenRod) >> {
-    var sectionType: ViewControllerTableViewSectionType { get }
+abstract SectionHeaderModel << (P, GoldenRod) >> {
+    var sectionType: TableViewSectionType { get }
     var isHidden: Bool { get }
 }
 
-ViewControllerCustomerSectionHeaderModel -down-ViewControllerSectionHeaderModel
-ViewControllerItemSectionHeaderModel -down-ViewControllerSectionHeaderModel
-ViewControllerAddressSectionHeaderModel -down-ViewControllerSectionHeaderModel
+CustomerSectionHeaderModel -down-SectionHeaderModel
+ItemSectionHeaderModel -down-SectionHeaderModel
+AddressSectionHeaderModel -down-SectionHeaderModel
 
-class ViewControllerCustomerSectionFooterModel << (S, Orange) >> {
+class CustomerSectionFooterModel << (S, Orange) >> {
 }
 
-class ViewControllerItemSectionFooterModel << (S, Orange) >> {
+class ItemSectionFooterModel << (S, Orange) >> {
 }
 
-class ViewControllerAddressSectionFooterModel << (S, Orange) >> {
+class AddressSectionFooterModel << (S, Orange) >> {
 }
 
-abstract ViewControllerSectionFooterModel << (P, GoldenRod) >> {
-    var sectionType: ViewControllerTableViewSectionType { get }
+abstract SectionFooterModel << (P, GoldenRod) >> {
+    var sectionType: TableViewSectionType { get }
     var isHidden: Bool { get }
 }
 
-ViewControllerCustomerSectionFooterModel -down- ViewControllerSectionFooterModel
-ViewControllerItemSectionFooterModel -down- ViewControllerSectionFooterModel
-ViewControllerAddressSectionFooterModel -down- ViewControllerSectionFooterModel
+CustomerSectionFooterModel -down- SectionFooterModel
+ItemSectionFooterModel -down- SectionFooterModel
+AddressSectionFooterModel -down- SectionFooterModel
 
-enum ViewControllerTableViewSectionType {
+enum TableViewSectionType {
     case customer
     case item
     case address
@@ -85,9 +85,9 @@ enum ViewControllerTableViewSectionType {
     func cellIdentifier() -> String
 }
 
-ViewControllerCellModel -down- ViewControllerTableViewSectionType
-ViewControllerSectionHeaderModel -down- ViewControllerTableViewSectionType
-ViewControllerSectionFooterModel -down- ViewControllerTableViewSectionType
+CellModel -down- TableViewSectionType
+SectionHeaderModel -down- TableViewSectionType
+SectionFooterModel -down- TableViewSectionType
 
 class ViewControllerWireframe {
     weak var view: UIViewController?
@@ -106,147 +106,147 @@ class ViewController {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
 }
 
 class ViewControllerPresenter {
     weak var view: UIViewController?
     let wireframe: ViewControllerWireframeProtocol
-    let customerUseCase: ViewControllerUseCaseProtocol
-    let itemUseCase: ViewControllerUseCaseProtocol
-    let addressUseCase: ViewControllerUseCaseProtocol
+    let customerUseCase: GetUseCaseProtocol
+    let itemUseCase: GetUseCaseProtocol
+    let addressUseCase: GetUseCaseProtocol
 
     func numberOfSections() -> Int
     func numberOfRows(in section: Int) -> Int
-    func itemData(of indexPath: IndexPath) -> ViewControllerCellModel?
-    func sectionHeaderModel(of section: Int) -> ViewControllerSectionHeaderModel
-    func sectionFooterModel(of section: Int) -> ViewControllerSectionFooterModel
+    func itemData(of indexPath: IndexPath) -> CellModel?
+    func sectionHeaderModel(of section: Int) -> SectionHeaderModel
+    func sectionFooterModel(of section: Int) -> SectionFooterModel
     func didSelectRow(of indexPath: IndexPath)
 }
 
-nameSpace ViewControllerCustomerUseCase{
-    class ViewControllerCustomerUseCase << (S, Orange) >> {
-        let useCaseInput: ViewControllerCustomerUseCaseInput
+nameSpace GetCustomerUseCase {
+    class GetCustomerUseCase << (S, Orange) >> {
+        let useCaseInput: GetCustomerUseCaseInput
     }
 
-    abstract ViewControllerCustomerUseCaseInput << (P, GoldenRod) >> {
+    abstract GetCustomerUseCaseInput << (P, GoldenRod) >> {
         func itemCount() -> Int
         func itemData(of index: Int) -> String?
     }
 
-    class ViewControllerCustomerRepository << (S, Orange) >> {
-        let repositoryInput: ViewControllerCustomerRepositoryInput
+    class GetCustomerRepository << (S, Orange) >> {
+        let repositoryInput: GetCustomerRepositoryInput
     }
 
-    abstract ViewControllerCustomerRepositoryInput << (P, GoldenRod) >> {
+    abstract GetCustomerRepositoryInput << (P, GoldenRod) >> {
         func itemCount() -> Int
         func itemData(of index: Int) -> String?
     }
 
-    class ViewControllerCustomerDataStore << (S, Orange) >> {
+    class GetCustomerDataStore << (S, Orange) >> {
         let customerName: String?
     }
 
-    ViewControllerCustomerUseCase -right- ViewControllerCustomerRepository
-    ViewControllerCustomerRepository -right- ViewControllerCustomerDataStore
+    GetCustomerUseCase -right- GetCustomerRepository
+    GetCustomerRepository -right- GetCustomerDataStore
 
-    ViewControllerCustomerUseCaseInput -up- ViewControllerCustomerRepository
-    ViewControllerCustomerRepositoryInput -up- ViewControllerCustomerDataStore
+    GetCustomerUseCaseInput -up- GetCustomerRepository
+    GetCustomerRepositoryInput -up- GetCustomerDataStore
 }
 
-namespace ViewControllerItemUseCase {
-    class ViewControllerItemUseCase << (S, Orange) >> {
-        let useCaseInput: ViewControllerItemUseCaseInput
+namespace GetItemUseCase {
+    class GetItemUseCase << (S, Orange) >> {
+        let useCaseInput: GetItemUseCaseInput
     }
 
-    abstract ViewControllerItemUseCaseInput << (P, GoldenRod) >> {
+    abstract GetItemUseCaseInput << (P, GoldenRod) >> {
         func itemCount() -> Int
         func itemData(of index: Int) -> String?
     }
 
-    class ViewControllerItemRepository << (S, Orange) >> {
-        let repositoryInput: ViewControllerItemRepositoryInput
+    class GetItemRepository << (S, Orange) >> {
+        let repositoryInput: GetItemRepositoryInput
     }
 
-    abstract ViewControllerItemRepositoryInput << (P, GoldenRod) >> {
+    abstract GetItemRepositoryInput << (P, GoldenRod) >> {
         func itemCount() -> Int
         func itemData(of index: Int) -> String?
     }
 
-    class ViewControllerItemDataStore << (S, Orange) >> {
+    class GetItemDataStore << (S, Orange) >> {
         let value: String?
     }
 
-    ViewControllerItemUseCase -right- ViewControllerItemRepository
-    ViewControllerItemRepository -right- ViewControllerItemDataStore
+    GetItemUseCase -right- GetItemRepository
+    GetItemRepository -right- GetItemDataStore
 
-    ViewControllerItemUseCaseInput -up- ViewControllerItemRepository
-    ViewControllerItemRepositoryInput -up- ViewControllerItemDataStore
+    GetItemUseCaseInput -up- GetItemRepository
+    GetItemRepositoryInput -up- GetItemDataStore
 }
 
-namespace ViewControllerAddressUseCase {
-    class ViewControllerAddressUseCase << (S, Orange) >> {
-        let useCaseInput: ViewControllerAddressUseCaseInput
+namespace GetAddressUseCase {
+    class GetAddressUseCase << (S, Orange) >> {
+        let useCaseInput: GetAddressUseCaseInput
     }
 
-    abstract ViewControllerAddressUseCaseInput << (P, GoldenRod) >> {
+    abstract GetAddressUseCaseInput << (P, GoldenRod) >> {
         func itemCount() -> Int
         func itemData(of index: Int) -> String?
     }
 
-    class ViewControllerAddressRepository << (S, Orange) >> {
-        let repositoryInput: ViewControllerAddressRepositoryInput
+    class GetAddressRepository << (S, Orange) >> {
+        let repositoryInput: GetAddressRepositoryInput
     }
 
-    abstract ViewControllerAddressRepositoryInput << (P, GoldenRod) >> {
+    abstract GetAddressRepositoryInput << (P, GoldenRod) >> {
         func itemCount() -> Int
         func itemData(of index: Int) -> String?
     }
 
-    class ViewControllerAddressDataStore << (S, Orange) >> {
+    class GetAddressDataStore << (S, Orange) >> {
         let value: String?
     }
 
-    abstract ViewControllerUseCaseProtocol << (P, GoldenRod) >> {
+    abstract GetUseCaseProtocol << (P, GoldenRod) >> {
         func itemCount() -> Int
         func itemData(of index: Int) -> String?
     }
 
-    ViewControllerAddressUseCase -right- ViewControllerAddressRepository
-    ViewControllerAddressRepository -right- ViewControllerAddressDataStore
+    GetAddressUseCase -right- GetAddressRepository
+    GetAddressRepository -right- GetAddressDataStore
 
-    ViewControllerAddressUseCaseInput -up- ViewControllerAddressRepository
-    ViewControllerAddressRepositoryInput -up- ViewControllerAddressDataStore
+    GetAddressUseCaseInput -up- GetAddressRepository
+    GetAddressRepositoryInput -up- GetAddressDataStore
 }
 
-class ViewControllerTableViewSectionHeaderUtilities << (S, Orange) >> {
-    func header(for headerModel: ViewControllerSectionHeaderModel) -> UIView?
-    func height(for headerModel: ViewControllerSectionHeaderModel) -> CGFloat
+class TableViewSectionHeaderUtilities << (S, Orange) >> {
+    func header(for headerModel: SectionHeaderModel) -> UIView?
+    func height(for headerModel: SectionHeaderModel) -> CGFloat
 }
 
-class ViewControllerTableViewSectionFooterUtilities << (S, Orange) >> {
-    func footer(for footerModel: ViewControllerSectionFooterModel) -> UIView?
-    func height(for footerModel: ViewControllerSectionFooterModel) -> CGFloat
+class TableViewSectionFooterUtilities << (S, Orange) >> {
+    func footer(for footerModel: SectionFooterModel) -> UIView?
+    func height(for footerModel: SectionFooterModel) -> CGFloat
 }
 
 ViewController -down- ViewControllerPresenter
 ViewController -left- ViewControllerWireframe
 ViewControllerPresenter -left- ViewControllerWireframe
-ViewControllerPresenter -down- ViewControllerCustomerUseCase
-ViewControllerPresenter -down- ViewControllerItemUseCase
-ViewControllerPresenter -down- ViewControllerAddressUseCase
+ViewControllerPresenter -down- GetCustomerUseCase
+ViewControllerPresenter -down- GetItemUseCase
+ViewControllerPresenter -down- GetAddressUseCase
 
-ViewController - ViewControllerConfigurableCell
-ViewController -up- ViewControllerCellModel
-ViewController -up- ViewControllerTableViewSectionType
-ViewController -up- ViewControllerSectionHeaderModel
-ViewController -up- ViewControllerSectionFooterModel
+ViewController - ConfigurableCell
+ViewController -up- CellModel
+ViewController -up- TableViewSectionType
+ViewController -up- SectionHeaderModel
+ViewController -up- SectionFooterModel
 
-ViewControllerPresenter - ViewControllerTableViewSectionType
+ViewControllerPresenter - TableViewSectionType
 
-ViewController -right- ViewControllerTableViewSectionHeaderUtilities
-ViewControllerTableViewSectionHeaderUtilities - ViewControllerSectionHeaderModel
-ViewController -right- ViewControllerTableViewSectionFooterUtilities
-ViewControllerTableViewSectionFooterUtilities - ViewControllerSectionFooterModel
+ViewController -right- TableViewSectionHeaderUtilities
+TableViewSectionHeaderUtilities - SectionHeaderModel
+ViewController -right- TableViewSectionFooterUtilities
+TableViewSectionFooterUtilities - SectionFooterModel
 
 @enduml
