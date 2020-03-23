@@ -1,8 +1,8 @@
-struct CustomerDataStore {
+struct GetCustomerDataStore {
     let customerName: String?
 }
 
-extension CustomerDataStore: CustomerRepositoryInput {
+extension GetCustomerDataStore: GetCustomerRepositoryInput {
     func itemCount() -> Int {
         return 1
     }

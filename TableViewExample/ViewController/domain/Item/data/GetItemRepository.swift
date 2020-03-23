@@ -1,13 +1,13 @@
-protocol AddressRepositoryInput {
+protocol GetItemRepositoryInput {
     func itemCount() -> Int
     func itemData(of index: Int) -> String?
 }
 
-struct AddressRepository {
-    let repositoryInput: AddressRepositoryInput
+struct GetItemRepository {
+    let repositoryInput: GetItemRepositoryInput
 }
 
-extension AddressRepository: AddressUseCaseInput {
+extension GetItemRepository: GetItemUseCaseInput {
     func itemCount() -> Int {
         return repositoryInput.itemCount()
     }

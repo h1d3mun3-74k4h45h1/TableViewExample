@@ -1,13 +1,13 @@
-protocol CustomerRepositoryInput {
+protocol GetAddressRepositoryInput {
     func itemCount() -> Int
     func itemData(of index: Int) -> String?
 }
 
-struct CustomerRepository {
-    let repositoryInput: CustomerRepositoryInput
+struct GetAddressRepository {
+    let repositoryInput: GetAddressRepositoryInput
 }
 
-extension CustomerRepository: CustomerUseCaseInput {
+extension GetAddressRepository: GetAddressUseCaseInput {
     func itemCount() -> Int {
         return repositoryInput.itemCount()
     }

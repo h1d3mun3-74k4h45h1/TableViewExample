@@ -1,8 +1,8 @@
-struct ItemDataStore {
+struct GetItemDataStore {
     let value: String?
 }
 
-extension ItemDataStore: ItemRepositoryInput {
+extension GetItemDataStore: GetItemRepositoryInput {
     func itemCount() -> Int {
         return 1
     }

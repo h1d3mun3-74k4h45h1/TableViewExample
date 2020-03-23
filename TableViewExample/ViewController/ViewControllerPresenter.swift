@@ -12,11 +12,11 @@ protocol ViewControllerPresenterProtocol {
 final class ViewControllerPresenter {
     weak var view: UIViewController?
     let wireframe: ViewControllerWireframeProtocol
-    let customerUseCase: UseCaseProtocol
-    let itemUseCase: UseCaseProtocol
-    let addressUseCase: UseCaseProtocol
+    let customerUseCase: GetUseCaseProtocol
+    let itemUseCase: GetUseCaseProtocol
+    let addressUseCase: GetUseCaseProtocol
 
-    init(view: UIViewController, wireframe: ViewControllerWireframeProtocol, customerUseCase: UseCaseProtocol, itemUseCase: UseCaseProtocol, addressUseCase: UseCaseProtocol) {
+    init(view: UIViewController, wireframe: ViewControllerWireframeProtocol, customerUseCase: GetUseCaseProtocol, itemUseCase: GetUseCaseProtocol, addressUseCase: GetUseCaseProtocol) {
         self.view = view
         self.wireframe = wireframe
         self.customerUseCase = customerUseCase

@@ -1,8 +1,8 @@
-struct AddressDataStore {
+struct GetAddressDataStore {
     let value: String?
 }
 
-extension AddressDataStore: AddressRepositoryInput {
+extension GetAddressDataStore: GetAddressRepositoryInput {
     func itemCount() -> Int {
         return 1
     }

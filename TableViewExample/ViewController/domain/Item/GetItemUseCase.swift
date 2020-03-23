@@ -1,13 +1,13 @@
-protocol CustomerUseCaseInput {
+protocol GetItemUseCaseInput {
     func itemCount() -> Int
     func itemData(of index: Int) -> String?
 }
 
-struct CustomerUseCase {
-    let useCaseInput: CustomerUseCaseInput
+struct GetItemUseCase {
+    let useCaseInput: GetItemUseCaseInput
 }
 
-extension CustomerUseCase: UseCaseProtocol {
+extension GetItemUseCase: GetUseCaseProtocol {
     func itemCount() -> Int {
         return useCaseInput.itemCount()
     }

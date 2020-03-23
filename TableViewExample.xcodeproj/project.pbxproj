@@ -20,20 +20,20 @@
 		1226C26323FCE30900B96FD9 /* CustomerSectionFooterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C26223FCE30900B96FD9 /* CustomerSectionFooterModel.swift */; };
 		1226C26523FCE31400B96FD9 /* ItemSectionFooterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C26423FCE31400B96FD9 /* ItemSectionFooterModel.swift */; };
 		1226C26723FCE32400B96FD9 /* AddressSectionFooterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C26623FCE32400B96FD9 /* AddressSectionFooterModel.swift */; };
-		1226C26E23FCE72F00B96FD9 /* UseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C26D23FCE72F00B96FD9 /* UseCaseProtocol.swift */; };
+		1226C26E23FCE72F00B96FD9 /* GetUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C26D23FCE72F00B96FD9 /* GetUseCaseProtocol.swift */; };
 		1260806723F6721C009CD94A /* ViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260806623F6721C009CD94A /* ViewControllerPresenter.swift */; };
 		1260806923F67225009CD94A /* ViewControllerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260806823F67225009CD94A /* ViewControllerWireframe.swift */; };
-		1260806C23F67237009CD94A /* CustomerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260806B23F67237009CD94A /* CustomerUseCase.swift */; };
-		1260806F23F67244009CD94A /* CustomerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260806E23F67244009CD94A /* CustomerDataStore.swift */; };
+		1260806C23F67237009CD94A /* GetCustomerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260806B23F67237009CD94A /* GetCustomerUseCase.swift */; };
+		1260806F23F67244009CD94A /* GetCustomerDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260806E23F67244009CD94A /* GetCustomerDataStore.swift */; };
 		1260807123F67355009CD94A /* ViewControllerPresenterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260807023F67355009CD94A /* ViewControllerPresenterBuilder.swift */; };
-		1260807323F67799009CD94A /* CustomerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260807223F67799009CD94A /* CustomerRepository.swift */; };
+		1260807323F67799009CD94A /* GetCustomerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260807223F67799009CD94A /* GetCustomerRepository.swift */; };
 		1260807B23F67FD2009CD94A /* TableViewSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260807A23F67FD2009CD94A /* TableViewSectionType.swift */; };
-		1262337723FCF0000060F695 /* ItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C26F23FCE76100B96FD9 /* ItemUseCase.swift */; };
-		1262337823FCF0030060F695 /* ItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C27523FCE78900B96FD9 /* ItemRepository.swift */; };
-		1262337923FCF0030060F695 /* ItemDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C27623FCE78900B96FD9 /* ItemDataStore.swift */; };
-		1262337A23FCF0080060F695 /* AddressUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C27423FCE76300B96FD9 /* AddressUseCase.swift */; };
-		1262337B23FCF0080060F695 /* AddressRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C27323FCE76300B96FD9 /* AddressRepository.swift */; };
-		1262337C23FCF0080060F695 /* AddressDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C27223FCE76300B96FD9 /* AddressDataStore.swift */; };
+		1262337723FCF0000060F695 /* GetItemUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C26F23FCE76100B96FD9 /* GetItemUseCase.swift */; };
+		1262337823FCF0030060F695 /* GetItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C27523FCE78900B96FD9 /* GetItemRepository.swift */; };
+		1262337923FCF0030060F695 /* GetItemDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C27623FCE78900B96FD9 /* GetItemDataStore.swift */; };
+		1262337A23FCF0080060F695 /* GetAddressUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C27423FCE76300B96FD9 /* GetAddressUseCase.swift */; };
+		1262337B23FCF0080060F695 /* GetAddressRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C27323FCE76300B96FD9 /* GetAddressRepository.swift */; };
+		1262337C23FCF0080060F695 /* GetAddressDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226C27223FCE76300B96FD9 /* GetAddressDataStore.swift */; };
 		1274CD2723EC0CA000516E74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD2623EC0CA000516E74 /* AppDelegate.swift */; };
 		1274CD2923EC0CA000516E74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD2823EC0CA000516E74 /* SceneDelegate.swift */; };
 		1274CD2B23EC0CA000516E74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1274CD2A23EC0CA000516E74 /* ViewController.swift */; };
@@ -81,19 +81,19 @@
 		1226C26223FCE30900B96FD9 /* CustomerSectionFooterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSectionFooterModel.swift; sourceTree = "<group>"; };
 		1226C26423FCE31400B96FD9 /* ItemSectionFooterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSectionFooterModel.swift; sourceTree = "<group>"; };
 		1226C26623FCE32400B96FD9 /* AddressSectionFooterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSectionFooterModel.swift; sourceTree = "<group>"; };
-		1226C26D23FCE72F00B96FD9 /* UseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProtocol.swift; sourceTree = "<group>"; };
-		1226C26F23FCE76100B96FD9 /* ItemUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemUseCase.swift; sourceTree = "<group>"; };
-		1226C27223FCE76300B96FD9 /* AddressDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDataStore.swift; sourceTree = "<group>"; };
-		1226C27323FCE76300B96FD9 /* AddressRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressRepository.swift; sourceTree = "<group>"; };
-		1226C27423FCE76300B96FD9 /* AddressUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressUseCase.swift; sourceTree = "<group>"; };
-		1226C27523FCE78900B96FD9 /* ItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRepository.swift; sourceTree = "<group>"; };
-		1226C27623FCE78900B96FD9 /* ItemDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataStore.swift; sourceTree = "<group>"; };
+		1226C26D23FCE72F00B96FD9 /* GetUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUseCaseProtocol.swift; sourceTree = "<group>"; };
+		1226C26F23FCE76100B96FD9 /* GetItemUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItemUseCase.swift; sourceTree = "<group>"; };
+		1226C27223FCE76300B96FD9 /* GetAddressDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAddressDataStore.swift; sourceTree = "<group>"; };
+		1226C27323FCE76300B96FD9 /* GetAddressRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAddressRepository.swift; sourceTree = "<group>"; };
+		1226C27423FCE76300B96FD9 /* GetAddressUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAddressUseCase.swift; sourceTree = "<group>"; };
+		1226C27523FCE78900B96FD9 /* GetItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItemRepository.swift; sourceTree = "<group>"; };
+		1226C27623FCE78900B96FD9 /* GetItemDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItemDataStore.swift; sourceTree = "<group>"; };
 		1260806623F6721C009CD94A /* ViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenter.swift; sourceTree = "<group>"; };
 		1260806823F67225009CD94A /* ViewControllerWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWireframe.swift; sourceTree = "<group>"; };
-		1260806B23F67237009CD94A /* CustomerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerUseCase.swift; sourceTree = "<group>"; };
-		1260806E23F67244009CD94A /* CustomerDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDataStore.swift; sourceTree = "<group>"; };
+		1260806B23F67237009CD94A /* GetCustomerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCustomerUseCase.swift; sourceTree = "<group>"; };
+		1260806E23F67244009CD94A /* GetCustomerDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCustomerDataStore.swift; sourceTree = "<group>"; };
 		1260807023F67355009CD94A /* ViewControllerPresenterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenterBuilder.swift; sourceTree = "<group>"; };
-		1260807223F67799009CD94A /* CustomerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRepository.swift; sourceTree = "<group>"; };
+		1260807223F67799009CD94A /* GetCustomerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCustomerRepository.swift; sourceTree = "<group>"; };
 		1260807A23F67FD2009CD94A /* TableViewSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionType.swift; sourceTree = "<group>"; };
 		1262337D23FCF16E0060F695 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1262338023FCF19D0060F695 /* Class.puml */ = {isa = PBXFileReference; lastKnownFileType = text; path = Class.puml; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 		1226C26823FCE6DB00B96FD9 /* Customer */ = {
 			isa = PBXGroup;
 			children = (
-				1260806B23F67237009CD94A /* CustomerUseCase.swift */,
+				1260806B23F67237009CD94A /* GetCustomerUseCase.swift */,
 				1260806D23F6723A009CD94A /* data */,
 			);
 			path = Customer;
@@ -217,7 +217,7 @@
 		1226C26B23FCE6F300B96FD9 /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				1226C26F23FCE76100B96FD9 /* ItemUseCase.swift */,
+				1226C26F23FCE76100B96FD9 /* GetItemUseCase.swift */,
 				1226C27023FCE76100B96FD9 /* data */,
 			);
 			path = Item;
@@ -226,7 +226,7 @@
 		1226C26C23FCE6F900B96FD9 /* Address */ = {
 			isa = PBXGroup;
 			children = (
-				1226C27423FCE76300B96FD9 /* AddressUseCase.swift */,
+				1226C27423FCE76300B96FD9 /* GetAddressUseCase.swift */,
 				1226C27123FCE76300B96FD9 /* data */,
 			);
 			path = Address;
@@ -235,8 +235,8 @@
 		1226C27023FCE76100B96FD9 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				1226C27523FCE78900B96FD9 /* ItemRepository.swift */,
-				1226C27623FCE78900B96FD9 /* ItemDataStore.swift */,
+				1226C27523FCE78900B96FD9 /* GetItemRepository.swift */,
+				1226C27623FCE78900B96FD9 /* GetItemDataStore.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -244,8 +244,8 @@
 		1226C27123FCE76300B96FD9 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				1226C27323FCE76300B96FD9 /* AddressRepository.swift */,
-				1226C27223FCE76300B96FD9 /* AddressDataStore.swift */,
+				1226C27323FCE76300B96FD9 /* GetAddressRepository.swift */,
+				1226C27223FCE76300B96FD9 /* GetAddressDataStore.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 		1260806A23F6722C009CD94A /* domain */ = {
 			isa = PBXGroup;
 			children = (
-				1226C26D23FCE72F00B96FD9 /* UseCaseProtocol.swift */,
+				1226C26D23FCE72F00B96FD9 /* GetUseCaseProtocol.swift */,
 				1226C26823FCE6DB00B96FD9 /* Customer */,
 				1226C26B23FCE6F300B96FD9 /* Item */,
 				1226C26C23FCE6F900B96FD9 /* Address */,
@@ -279,8 +279,8 @@
 		1260806D23F6723A009CD94A /* data */ = {
 			isa = PBXGroup;
 			children = (
-				1260807223F67799009CD94A /* CustomerRepository.swift */,
-				1260806E23F67244009CD94A /* CustomerDataStore.swift */,
+				1260807223F67799009CD94A /* GetCustomerRepository.swift */,
+				1260806E23F67244009CD94A /* GetCustomerDataStore.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -501,31 +501,31 @@
 				12BBA3CA23FA5637004644CE /* ViewControllerTableViewSectionFooterUtilities.swift in Sources */,
 				1226C25D23FCE2E100B96FD9 /* CustomerSectionHeaderModel.swift in Sources */,
 				1226C25623FCE26500B96FD9 /* SectionHeaderModel.swift in Sources */,
-				1260807323F67799009CD94A /* CustomerRepository.swift in Sources */,
+				1260807323F67799009CD94A /* GetCustomerRepository.swift in Sources */,
 				12BBA3C823FA562B004644CE /* ViewControllerTableViewSectionHeaderUtilities.swift in Sources */,
 				1226C25F23FCE2EC00B96FD9 /* ItemSectionHeaderModel.swift in Sources */,
-				1260806C23F67237009CD94A /* CustomerUseCase.swift in Sources */,
+				1260806C23F67237009CD94A /* GetCustomerUseCase.swift in Sources */,
 				1226C25123FCDDAA00B96FD9 /* AddressCellModel.swift in Sources */,
-				1262337723FCF0000060F695 /* ItemUseCase.swift in Sources */,
+				1262337723FCF0000060F695 /* GetItemUseCase.swift in Sources */,
 				1226C25423FCDFD700B96FD9 /* ConfigurableCell.swift in Sources */,
 				1260807123F67355009CD94A /* ViewControllerPresenterBuilder.swift in Sources */,
-				1262337A23FCF0080060F695 /* AddressUseCase.swift in Sources */,
-				1260806F23F67244009CD94A /* CustomerDataStore.swift in Sources */,
-				1262337923FCF0030060F695 /* ItemDataStore.swift in Sources */,
+				1262337A23FCF0080060F695 /* GetAddressUseCase.swift in Sources */,
+				1260806F23F67244009CD94A /* GetCustomerDataStore.swift in Sources */,
+				1262337923FCF0030060F695 /* GetItemDataStore.swift in Sources */,
 				1260807B23F67FD2009CD94A /* TableViewSectionType.swift in Sources */,
-				1262337C23FCF0080060F695 /* AddressDataStore.swift in Sources */,
-				1226C26E23FCE72F00B96FD9 /* UseCaseProtocol.swift in Sources */,
+				1262337C23FCF0080060F695 /* GetAddressDataStore.swift in Sources */,
+				1226C26E23FCE72F00B96FD9 /* GetUseCaseProtocol.swift in Sources */,
 				1226C26123FCE2F800B96FD9 /* AddressSectionHeaderModel.swift in Sources */,
 				1226C24B23FCDCF000B96FD9 /* CellModel.swift in Sources */,
 				1274CD2B23EC0CA000516E74 /* ViewController.swift in Sources */,
 				1226C26323FCE30900B96FD9 /* CustomerSectionFooterModel.swift in Sources */,
 				1226C26723FCE32400B96FD9 /* AddressSectionFooterModel.swift in Sources */,
-				1262337B23FCF0080060F695 /* AddressRepository.swift in Sources */,
+				1262337B23FCF0080060F695 /* GetAddressRepository.swift in Sources */,
 				1260806923F67225009CD94A /* ViewControllerWireframe.swift in Sources */,
 				1274CD5C23EC0E0800516E74 /* AddressCell.swift in Sources */,
 				1274CD5A23EC0E0200516E74 /* ItemCell.swift in Sources */,
 				1226C25823FCE27000B96FD9 /* SectionFooterModel.swift in Sources */,
-				1262337823FCF0030060F695 /* ItemRepository.swift in Sources */,
+				1262337823FCF0030060F695 /* GetItemRepository.swift in Sources */,
 				1226C26523FCE31400B96FD9 /* ItemSectionFooterModel.swift in Sources */,
 				1274CD5F23EC0EC300516E74 /* TestModel.swift in Sources */,
 				1274CD2723EC0CA000516E74 /* AppDelegate.swift in Sources */,

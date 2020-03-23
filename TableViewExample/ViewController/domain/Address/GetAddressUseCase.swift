@@ -1,13 +1,13 @@
-protocol AddressUseCaseInput {
+protocol GetAddressUseCaseInput {
     func itemCount() -> Int
     func itemData(of index: Int) -> String?
 }
 
-struct AddressUseCase {
-    let useCaseInput: AddressUseCaseInput
+struct GetAddressUseCase {
+    let useCaseInput: GetAddressUseCaseInput
 }
 
-extension AddressUseCase: UseCaseProtocol {
+extension GetAddressUseCase: GetUseCaseProtocol {
     func itemCount() -> Int {
         return useCaseInput.itemCount()
     }
