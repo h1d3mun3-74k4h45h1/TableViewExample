@@ -37,11 +37,11 @@ extension ViewControllerPresenter: ViewControllerPresenterProtocol {
 
         switch sectionType {
         case .customer:
-            return customerUseCase.itemCount()
+            return customerUseCase.execute().count
         case .item:
-            return itemUseCase.itemCount()
+            return itemUseCase.execute().count
         case .address:
-            return addressUseCase.itemCount()
+            return addressUseCase.execute().count
         }
     }
 
@@ -52,14 +52,11 @@ extension ViewControllerPresenter: ViewControllerPresenterProtocol {
 
         switch sectionType {
         case .customer:
-            guard let data = customerUseCase.itemData(of: indexPath.row) else { return nil }
-            return CustomerCellModel(value: data)
+            return CustomerCellModel(value: customerUseCase.execute()[indexPath.row])
         case .item:
-            guard let data = itemUseCase.itemData(of: indexPath.row) else { return nil }
-            return ItemCellModel(value: data)
+            return ItemCellModel(value: itemUseCase.execute()[indexPath.row] )
         case .address:
-            guard let data = addressUseCase.itemData(of: indexPath.row) else { return nil }
-            return AddressCellModel(value: data)
+            return AddressCellModel(value: addressUseCase.execute()[indexPath.row])
         }
     }
 
@@ -70,11 +67,11 @@ extension ViewControllerPresenter: ViewControllerPresenterProtocol {
 
         switch sectionType {
          case .customer:
-            return CustomerSectionHeaderModel(isHidden: customerUseCase.itemCount() == 0)
+            return CustomerSectionHeaderModel(isHidden: customerUseCase.execute().count == 0)
          case .item:
-            return ItemSectionHeaderModel(isHidden: itemUseCase.itemCount() == 0)
+            return ItemSectionHeaderModel(isHidden: itemUseCase.execute().count == 0)
          case .address:
-            return AddressSectionHeaderModel(isHidden: addressUseCase.itemCount() == 0)
+            return AddressSectionHeaderModel(isHidden: addressUseCase.execute().count == 0)
          }
     }
 
@@ -85,11 +82,11 @@ extension ViewControllerPresenter: ViewControllerPresenterProtocol {
 
         switch sectionType {
          case .customer:
-            return CustomerSectionFooterModel(isHidden: customerUseCase.itemCount() == 0)
+            return CustomerSectionFooterModel(isHidden: customerUseCase.execute().count == 0)
          case .item:
-            return ItemSectionFooterModel(isHidden: itemUseCase.itemCount() == 0)
+            return ItemSectionFooterModel(isHidden: itemUseCase.execute().count == 0)
          case .address:
-            return AddressSectionFooterModel(isHidden: addressUseCase.itemCount() == 0)
+            return AddressSectionFooterModel(isHidden: addressUseCase.execute().count == 0)
          }
     }
 
@@ -100,14 +97,11 @@ extension ViewControllerPresenter: ViewControllerPresenterProtocol {
 
         switch sectionType {
         case .customer:
-            guard let value = customerUseCase.itemData(of: indexPath.section) else { return }
-            wireframe.showCustomerDetail(name: value)
+            wireframe.showCustomerDetail(name: customerUseCase.execute()[indexPath.row])
         case .item:
-            guard let value = itemUseCase.itemData(of: indexPath.section) else { return }
-            wireframe.showItemDetail(itemName: value)
+            wireframe.showItemDetail(itemName: itemUseCase.execute()[indexPath.row])
         case .address:
-            guard let value = addressUseCase.itemData(of: indexPath.section) else { return }
-            wireframe.showAddressDetail(address: value)
+            wireframe.showAddressDetail(address: addressUseCase.execute()[indexPath.row])
         }
     }
 }

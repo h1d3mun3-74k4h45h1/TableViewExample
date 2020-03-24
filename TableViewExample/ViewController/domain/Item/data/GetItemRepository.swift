@@ -1,6 +1,5 @@
 protocol GetItemRepositoryInput {
-    func itemCount() -> Int
-    func itemData(of index: Int) -> String?
+    func execute() -> [String]
 }
 
 struct GetItemRepository {
@@ -8,11 +7,7 @@ struct GetItemRepository {
 }
 
 extension GetItemRepository: GetItemUseCaseInput {
-    func itemCount() -> Int {
-        return repositoryInput.itemCount()
-    }
-
-    func itemData(of index: Int) -> String? {
-        return repositoryInput.itemData(of: index)
+    func execute() -> [String] {
+        return repositoryInput.execute()
     }
 }

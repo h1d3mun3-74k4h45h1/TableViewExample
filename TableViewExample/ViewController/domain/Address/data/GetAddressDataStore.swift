@@ -3,11 +3,9 @@ struct GetAddressDataStore {
 }
 
 extension GetAddressDataStore: GetAddressRepositoryInput {
-    func itemCount() -> Int {
-        return 1
+    func execute() -> [String] {
+        guard let value = value else { return [] }
+        return [value]
     }
 
-    func itemData(of index: Int) -> String? {
-        return value
-    }
 }

@@ -3,11 +3,8 @@ struct GetCustomerDataStore {
 }
 
 extension GetCustomerDataStore: GetCustomerRepositoryInput {
-    func itemCount() -> Int {
-        return 1
-    }
-
-    func itemData(of index: Int) -> String? {
-        return customerName
+    func execute() -> [String] {
+        guard let customerName = customerName else { return [] }
+        return [customerName]
     }
 }

@@ -1,6 +1,5 @@
 protocol GetAddressUseCaseInput {
-    func itemCount() -> Int
-    func itemData(of index: Int) -> String?
+    func execute() -> [String]
 }
 
 struct GetAddressUseCase {
@@ -8,11 +7,7 @@ struct GetAddressUseCase {
 }
 
 extension GetAddressUseCase: GetUseCaseProtocol {
-    func itemCount() -> Int {
-        return useCaseInput.itemCount()
-    }
-
-    func itemData(of index: Int) -> String? {
-        return useCaseInput.itemData(of: index)
+    func execute() -> [String] {
+        return useCaseInput.execute()
     }
 }

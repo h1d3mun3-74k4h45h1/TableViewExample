@@ -3,11 +3,8 @@ struct GetItemDataStore {
 }
 
 extension GetItemDataStore: GetItemRepositoryInput {
-    func itemCount() -> Int {
-        return 1
-    }
-
-    func itemData(of index: Int) -> String? {
-        return value
+    func execute() -> [String] {
+        guard let value = value else { return [] }
+        return [value]
     }
 }
