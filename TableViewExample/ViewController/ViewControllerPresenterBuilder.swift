@@ -6,7 +6,7 @@ struct ViewControllerPresenterBuilder {
         let customerRepository = GetCustomerRepository(repositoryInput: customerDataStore)
         let customerUseCase = GetCustomerUseCase(useCaseInput: customerRepository)
 
-        let itemDataStore = GetItemDataStore(value: "Test Customer")
+        let itemDataStore = GetItemDataStore(value: "Test Item")
         let itemRepository = GetItemRepository(repositoryInput: itemDataStore)
         let itemUseCase = GetItemUseCase(useCaseInput: itemRepository)
 
