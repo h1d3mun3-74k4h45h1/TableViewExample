@@ -1,5 +1,5 @@
-struct ItemCellModel: ViewControllerCellModel {
-    let sectionType: ViewControllerTableViewSectionType = .item
+struct ItemCellModel: CellModel {
+    let sectionType: TableViewSectionType = .item
 
     let value: String
 }
